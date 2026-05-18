@@ -1,0 +1,100 @@
+{
+  "name": "Feedback Automation Workflow",
+  "description": "Workflow de collecte et traitement de feedback des apprenants",
+  "version": "1.0",
+  "nodes": [
+    {
+      "id": "1",
+      "name": "Webhook - Receive Feedback",
+      "type": "n8n-nodes-base.webhook",
+      "position": [100, 300],
+      "parameters": {
+        "path": "feedback",
+        "method": "POST",
+        "responseMode": "responseNode"
+      }
+    },
+    {
+      "id": "2",
+      "name": "Validate Feedback",
+      "type": "n8n-nodes-base.if",
+      "position": [350, 300],
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{$json.feedback}}",
+              "operation": "isNotEmpty"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "3",
+      "name": "AI Analysis Mock",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [600, 200],
+      "parameters": {
+        "url": "http://ai-tutor-service:8003/api/ai-tutor/summarize",
+        "method": "POST",
+        "sendHeaders": true,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": "={\"course_id\": {{$json.course_id}}, \"content\": \"{{$json.feedback}}\"}"
+      }
+    },
+    {
+      "id": "4",
+      "name": "Store in Analytics",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [850, 200],
+      "parameters": {
+        "url": "http://analytics-service:8002/api/analytics/events",
+        "method": "POST",
+        "sendHeaders": true,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": "={\"event_type\": \"feedback\", \"user_id\": \"{{$json.user_id}}\", \"course_id\": {{$json.course_id}}, \"data\": {\"feedback\": \"{{$json.feedback}}\", \"rating\": {{$json.rating}}}}"
+      }
+    },
+    {
+      "id": "5",
+      "name": "Send Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "position": [1100, 200],
+      "parameters": {
+        "responseBody": "={\"status\": \"success\", \"message\": \"Feedback received and processed\", \"analysis\": {{$json}}}"
+      }
+    },
+    {
+      "id": "6",
+      "name": "Error Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "position": [600, 400],
+      "parameters": {
+        "responseBody": "{\"status\": \"error\", \"message\": \"Invalid feedback data\"}",
+        "responseCode": 400
+      }
+    }
+  ],
+  "connections": {
+    "Webhook - Receive Feedback": {
+      "main": [[{ "node": "Validate Feedback", "type": "main", "index": 0 }]]
+    },
+    "Validate Feedback": {
+      "main": [
+        [{ "node": "AI Analysis Mock", "type": "main", "index": 0 }],
+        [{ "node": "Error Response", "type": "main", "index": 0 }]
+      ]
+    },
+    "AI Analysis Mock": {
+      "main": [[{ "node": "Store in Analytics", "type": "main", "index": 0 }]]
+    },
+    "Store in Analytics": {
+      "main": [[{ "node": "Send Response", "type": "main", "index": 0 }]]
+    }
+  }
+}
