@@ -1,0 +1,576 @@
+ai-tutor-service   | INFO:     Started reloader process [1] using WatchFiles
+nginx-gateway      | /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+nginx-gateway      | /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+nginx-gateway      | /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+nginx-gateway      | 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+nginx-gateway      | 10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
+nginx-gateway      | /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+nginx-gateway      | /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+nginx-gateway      | /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+nginx-gateway      | /docker-entrypoint.sh: Configuration complete; ready for start up
+ai-tutor-service   | INFO:     Started server process [8]
+ai-tutor-service   | INFO:     Waiting for application startup.
+ai-tutor-service   | INFO:     Application startup complete.
+analytics-service  | INFO:     Started server process [8]
+analytics-service  | INFO:     Waiting for application startup.
+analytics-service  | INFO:app.main:Analytics Service started
+analytics-service  | INFO:     Application startup complete.
+
+
+
+course-service     | INFO:     Started server process [9]
+course-service     | INFO:     Waiting for application startup.
+course-service     | INFO:app.main:Course Service started
+course-service     | INFO:     Application startup complete.
+analytics-service  | INFO:     127.0.0.1:57906 - "GET /health HTTP/1.1" 200 OK
+course-service     | INFO:     127.0.0.1:47956 - "GET /health HTTP/1.1" 200 OK
+ai-tutor-service   | INFO:     127.0.0.1:53180 - "GET /health HTTP/1.1" 200 OK
+mongodb            | {"t":{"$date":"2026-05-18T21:21:16.118+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"172.26.0.7:41110","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"ab7b0764-b138-400c-a966-8b51d21be04f"}},"connectionId":8,"connectionCount":3}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:16.120+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn8","msg":"client metadata","attr":{"remote":"172.26.0.7:41110","client":"conn8","negotiatedCompressors":[],"doc":{"driver":{"name":"nodejs|Mongoose","version":"6.20.0|8.24.0"},"platform":"Node.js v20.20.2, LE","os":{"name":"linux","architecture":"x64","version":"6.6.87.2-microsoft-standard-WSL2","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:16.120+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn8","msg":"Connection not authenticating","attr":{"client":"172.26.0.7:41110","doc":{"driver":{"name":"nodejs|Mongoose","version":"6.20.0|8.24.0"},"platform":"Node.js v20.20.2, LE","os":{"name":"linux","architecture":"x64","version":"6.6.87.2-microsoft-standard-WSL2","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+n8n-automation     | No encryption key found - Auto-generating and saving to: /home/node/.n8n/config
+n8n-automation     | Initializing n8n process
+n8n-automation     | n8n ready on ::, port 5678
+n8n-automation     | Migrations in progress, please do NOT stop the process.
+n8n-automation     | Starting migration InitialMigration1587669153312
+n8n-automation     | Finished migration InitialMigration1587669153312
+n8n-automation     | Starting migration WebhookModel1589476000887
+n8n-automation     | Finished migration WebhookModel1589476000887
+n8n-automation     | Starting migration CreateIndexStoppedAt1594828256133
+n8n-automation     | Finished migration CreateIndexStoppedAt1594828256133
+n8n-automation     | Starting migration MakeStoppedAtNullable1607431743768
+n8n-automation     | Finished migration MakeStoppedAtNullable1607431743768
+n8n-automation     | Starting migration AddWebhookId1611144599516
+n8n-automation     | Finished migration AddWebhookId1611144599516
+n8n-automation     | Starting migration CreateTagEntity1617270242566
+n8n-automation     | Finished migration CreateTagEntity1617270242566
+n8n-automation     | Starting migration UniqueWorkflowNames1620824779533
+n8n-automation     | Finished migration UniqueWorkflowNames1620824779533
+n8n-automation     | Starting migration AddwaitTill1626176912946
+n8n-automation     | Finished migration AddwaitTill1626176912946
+n8n-automation     | Starting migration UpdateWorkflowCredentials1630419189837
+n8n-automation     | Finished migration UpdateWorkflowCredentials1630419189837
+n8n-automation     | Starting migration AddExecutionEntityIndexes1644422880309
+n8n-automation     | Finished migration AddExecutionEntityIndexes1644422880309
+n8n-automation     | Starting migration IncreaseTypeVarcharLimit1646834195327
+n8n-automation     | Finished migration IncreaseTypeVarcharLimit1646834195327
+n8n-automation     | Starting migration CreateUserManagement1646992772331
+n8n-automation     | Finished migration CreateUserManagement1646992772331
+n8n-automation     | Starting migration LowerCaseUserEmail1648740597343
+n8n-automation     | Finished migration LowerCaseUserEmail1648740597343
+n8n-automation     | Starting migration CommunityNodes1652254514002
+n8n-automation     | Finished migration CommunityNodes1652254514002
+n8n-automation     | Starting migration AddUserSettings1652367743993
+n8n-automation     | Finished migration AddUserSettings1652367743993
+n8n-automation     | Starting migration AddAPIKeyColumn1652905585850
+n8n-automation     | Finished migration AddAPIKeyColumn1652905585850
+n8n-automation     | Starting migration IntroducePinData1654090467022
+n8n-automation     | Finished migration IntroducePinData1654090467022
+n8n-automation     | Starting migration AddNodeIds1658932090381
+n8n-automation     | Finished migration AddNodeIds1658932090381
+n8n-automation     | Starting migration AddJsonKeyPinData1659902242948
+n8n-automation     | Finished migration AddJsonKeyPinData1659902242948
+n8n-automation     | Starting migration CreateCredentialsUserRole1660062385367
+n8n-automation     | Finished migration CreateCredentialsUserRole1660062385367
+n8n-automation     | Starting migration CreateWorkflowsEditorRole1663755770893
+n8n-automation     | Finished migration CreateWorkflowsEditorRole1663755770893
+n8n-automation     | Starting migration WorkflowStatistics1664196174001
+n8n-automation     | Finished migration WorkflowStatistics1664196174001
+n8n-automation     | Starting migration CreateCredentialUsageTable1665484192212
+n8n-automation     | Finished migration CreateCredentialUsageTable1665484192212
+n8n-automation     | Starting migration RemoveCredentialUsageTable1665754637025
+n8n-automation     | Finished migration RemoveCredentialUsageTable1665754637025
+n8n-automation     | Starting migration AddWorkflowVersionIdColumn1669739707126
+n8n-automation     | Finished migration AddWorkflowVersionIdColumn1669739707126
+n8n-automation     | Starting migration AddTriggerCountColumn1669823906995
+n8n-automation     | Finished migration AddTriggerCountColumn1669823906995
+n8n-automation     | Starting migration MessageEventBusDestinations1671535397530
+n8n-automation     | Finished migration MessageEventBusDestinations1671535397530
+n8n-automation     | Starting migration RemoveWorkflowDataLoadedFlag1671726148421
+n8n-automation     | Finished migration RemoveWorkflowDataLoadedFlag1671726148421
+n8n-automation     | Starting migration DeleteExecutionsWithWorkflows1673268682475
+n8n-automation     | Finished migration DeleteExecutionsWithWorkflows1673268682475
+n8n-automation     | Starting migration AddStatusToExecutions1674138566000
+n8n-automation     | Finished migration AddStatusToExecutions1674138566000
+n8n-automation     | Starting migration CreateLdapEntities1674509946020
+n8n-automation     | Finished migration CreateLdapEntities1674509946020
+n8n-automation     | Starting migration PurgeInvalidWorkflowConnections1675940580449
+n8n-automation     | Finished migration PurgeInvalidWorkflowConnections1675940580449
+n8n-automation     | Starting migration MigrateExecutionStatus1676996103000
+n8n-automation     | Finished migration MigrateExecutionStatus1676996103000
+n8n-automation     | Starting migration UpdateRunningExecutionStatus1677236854063
+n8n-automation     | Finished migration UpdateRunningExecutionStatus1677236854063
+n8n-automation     | Starting migration CreateVariables1677501636754
+n8n-automation     | Finished migration CreateVariables1677501636754
+n8n-automation     | Starting migration CreateExecutionMetadataTable1679416281778
+n8n-automation     | Finished migration CreateExecutionMetadataTable1679416281778
+n8n-automation     | Starting migration AddUserActivatedProperty1681134145996
+n8n-automation     | Finished migration AddUserActivatedProperty1681134145996
+n8n-automation     | Starting migration RemoveSkipOwnerSetup1681134145997
+n8n-automation     | Finished migration RemoveSkipOwnerSetup1681134145997
+n8n-automation     | Starting migration MigrateIntegerKeysToString1690000000000
+n8n-automation     | Finished migration MigrateIntegerKeysToString1690000000000
+n8n-automation     | Starting migration SeparateExecutionData1690000000020
+n8n-automation     | Finished migration SeparateExecutionData1690000000020
+n8n-automation     | Starting migration RemoveResetPasswordColumns1690000000030
+n8n-automation     | Finished migration RemoveResetPasswordColumns1690000000030
+n8n-automation     | Starting migration AddMfaColumns1690000000030
+n8n-automation     | Finished migration AddMfaColumns1690000000030
+n8n-automation     | Starting migration AddMissingPrimaryKeyOnExecutionData1690787606731
+n8n-automation     | Finished migration AddMissingPrimaryKeyOnExecutionData1690787606731
+n8n-automation     | Starting migration CreateWorkflowNameIndex1691088862123
+n8n-automation     | Finished migration CreateWorkflowNameIndex1691088862123
+n8n-automation     | Starting migration CreateWorkflowHistoryTable1692967111175
+n8n-automation     | Finished migration CreateWorkflowHistoryTable1692967111175
+n8n-automation     | Starting migration ExecutionSoftDelete1693491613982
+n8n-automation     | Finished migration ExecutionSoftDelete1693491613982
+n8n-automation     | Starting migration DisallowOrphanExecutions1693554410387
+n8n-automation     | Finished migration DisallowOrphanExecutions1693554410387
+n8n-automation     | Starting migration MigrateToTimestampTz1694091729095
+n8n-automation     | Finished migration MigrateToTimestampTz1694091729095
+n8n-automation     | Starting migration AddWorkflowMetadata1695128658538
+n8n-automation     | Finished migration AddWorkflowMetadata1695128658538
+n8n-automation     | Starting migration ModifyWorkflowHistoryNodesAndConnections1695829275184
+n8n-automation     | Finished migration ModifyWorkflowHistoryNodesAndConnections1695829275184
+n8n-automation     | Starting migration AddGlobalAdminRole1700571993961
+n8n-automation     | Finished migration AddGlobalAdminRole1700571993961
+n8n-automation     | Starting migration DropRoleMapping1705429061930
+n8n-automation     | Finished migration DropRoleMapping1705429061930
+n8n-automation     | Starting migration RemoveFailedExecutionStatus1711018413374
+n8n-automation     | Finished migration RemoveFailedExecutionStatus1711018413374
+n8n-automation     | Starting migration MoveSshKeysToDatabase1711390882123
+n8n-automation     | [MoveSshKeysToDatabase1711390882123] No SSH keys in filesystem, skipping
+n8n-automation     | Finished migration MoveSshKeysToDatabase1711390882123
+n8n-automation     | Starting migration RemoveNodesAccess1712044305787
+n8n-automation     | Finished migration RemoveNodesAccess1712044305787
+n8n-automation     | Starting migration CreateProject1714133768519
+n8n-automation     | Finished migration CreateProject1714133768519
+n8n-automation     | Starting migration MakeExecutionStatusNonNullable1714133768521
+n8n-automation     | Finished migration MakeExecutionStatusNonNullable1714133768521
+n8n-automation     | Starting migration AddActivatedAtUserSetting1717498465931
+n8n-automation     | Finished migration AddActivatedAtUserSetting1717498465931
+n8n-automation     | Starting migration AddConstraintToExecutionMetadata1720101653148
+n8n-automation     | Finished migration AddConstraintToExecutionMetadata1720101653148
+n8n-automation     | Starting migration FixExecutionMetadataSequence1721377157740
+n8n-automation     | Finished migration FixExecutionMetadataSequence1721377157740
+n8n-automation     | Starting migration CreateInvalidAuthTokenTable1723627610222
+n8n-automation     | Finished migration CreateInvalidAuthTokenTable1723627610222
+n8n-automation     | Starting migration RefactorExecutionIndices1723796243146
+n8n-automation     | Finished migration RefactorExecutionIndices1723796243146
+n8n-automation     | Starting migration CreateAnnotationTables1724753530828
+mongodb            | {"t":{"$date":"2026-05-18T21:21:23.446+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:57574","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"a7874f8f-a88a-4fc5-8155-23e2c08d6118"}},"connectionId":9,"connectionCount":4}}
+n8n-automation     | Finished migration CreateAnnotationTables1724753530828
+
+
+
+
+mongodb            | {"t":{"$date":"2026-05-18T21:21:23.453+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn9","msg":"client metadata","attr":{"remote":"127.0.0.1:57574","client":"conn9","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+n8n-automation     | Starting migration AddApiKeysTable1724951148974
+
+
+
+
+mongodb            | {"t":{"$date":"2026-05-18T21:21:23.453+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn9","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:57574","doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+
+n8n-automation     | Finished migration AddApiKeysTable1724951148974
+mongodb            | {"t":{"$date":"2026-05-18T21:21:23.481+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:57578","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"0fc21b25-788f-4525-b3d9-abf25e343510"}},"connectionId":10,"connectionCount":5}}
+
+
+v View in Docker Desktop   o View Config   w Enable Watch
+
+n8n-automation     | Starting migration CreateProcessedDataTable1726606152711
+mongodb            | {"t":{"$date":"2026-05-18T21:21:23.484+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn10","msg":"client metadata","attr":{"remote":"127.0.0.1:57578","client":"conn10","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+
+
+
+
+n8n-automation     | Finished migration CreateProcessedDataTable1726606152711
+mongodb            | {"t":{"$date":"2026-05-18T21:21:23.484+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn10","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:57578","doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+n8n-automation     | Starting migration SeparateExecutionCreationFromStart1727427440136
+
+mongodb            | {"t":{"$date":"2026-05-18T21:21:23.552+00:00"},"s":"I",  "c":"NETWORK",  "id":6788700, "ctx":"conn10","msg":"Received first command on ingress connection since session start or auth handshake","attr":{"elapsedMillis":68}}
+
+
+
+
+n8n-automation     | Finished migration SeparateExecutionCreationFromStart1727427440136
+n8n-automation     | Starting migration AddMissingPrimaryKeyOnAnnotationTagMapping1728659839644
+n8n-automation     | Finished migration AddMissingPrimaryKeyOnAnnotationTagMapping1728659839644
+n8n-automation     | Starting migration UpdateProcessedDataValueColumnToText1729607673464
+n8n-automation     | Finished migration UpdateProcessedDataValueColumnToText1729607673464
+n8n-automation     | Starting migration AddProjectIcons1729607673469
+mongodb            | {"t":{"$date":"2026-05-18T21:21:24.009+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:57590","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"0e3597cc-628a-4f1a-a414-acf08b40cd99"}},"connectionId":11,"connectionCount":6}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:24.010+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:57606","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"be827273-49ff-48a7-afe9-5b400de16af3"}},"connectionId":12,"connectionCount":7}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:24.055+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn11","msg":"client metadata","attr":{"remote":"127.0.0.1:57590","client":"conn11","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+
+n8n-automation     | Finished migration AddProjectIcons1729607673469
+
+mongodb            | {"t":{"$date":"2026-05-18T21:21:24.055+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn11","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:57590","doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+n8n-automation     | Starting migration CreateTestDefinitionTable1730386903556
+
+
+
+
+mongodb            | {"t":{"$date":"2026-05-18T21:21:24.065+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn12","msg":"client metadata","attr":{"remote":"127.0.0.1:57606","client":"conn12","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+n8n-automation     | Finished migration CreateTestDefinitionTable1730386903556
+
+
+n8n-automation     | Starting migration AddDescriptionToTestDefinition1731404028106
+mongodb            | {"t":{"$date":"2026-05-18T21:21:24.065+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn12","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:57606","doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+
+
+
+
+n8n-automation     | Finished migration AddDescriptionToTestDefinition1731404028106
+mongodb            | {"t":{"$date":"2026-05-18T21:21:24.183+00:00"},"s":"I",  "c":"-",        "id":20883,   "ctx":"conn9","msg":"Interrupted operation as its client disconnected","attr":{"opId":266}}
+
+
+mongodb            | {"t":{"$date":"2026-05-18T21:21:24.184+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn9","msg":"Connection ended","attr":{"remote":"127.0.0.1:57574","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"a7874f8f-a88a-4fc5-8155-23e2c08d6118"}},"connectionId":9,"connectionCount":6}}
+
+
+
+
+mongodb            | {"t":{"$date":"2026-05-18T21:21:24.187+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn11","msg":"Connection ended","attr":{"remote":"127.0.0.1:57590","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"0e3597cc-628a-4f1a-a414-acf08b40cd99"}},"connectionId":11,"connectionCount":5}}
+n8n-automation     | Finished migration MigrateTestDefinitionKeyToString1731582748663
+
+
+
+
+mongodb            | {"t":{"$date":"2026-05-18T21:21:24.188+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn10","msg":"Connection ended","attr":{"remote":"127.0.0.1:57578","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"0fc21b25-788f-4525-b3d9-abf25e343510"}},"connectionId":10,"connectionCount":4}}
+n8n-automation     | Starting migration CreateTestMetricTable1732271325258
+n8n-automation     | Finished migration CreateTestMetricTable1732271325258
+
+
+
+mongodb            | {"t":{"$date":"2026-05-18T21:21:24.381+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn12","msg":"Connection ended","attr":{"remote":"127.0.0.1:57606","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"be827273-49ff-48a7-afe9-5b400de16af3"}},"connectionId":12,"connectionCount":3}}
+
+
+n8n-automation     | Starting migration CreateTestRun1732549866705
+n8n-automation     | Finished migration CreateTestRun1732549866705
+n8n-automation     | Starting migration AddMockedNodesColumnToTestDefinition1733133775640
+n8n-automation     | Finished migration AddMockedNodesColumnToTestDefinition1733133775640
+n8n-automation     | Starting migration AddManagedColumnToCredentialsTable1734479635324
+n8n-automation     | Finished migration AddManagedColumnToCredentialsTable1734479635324
+n8n-automation     | Starting migration AddStatsColumnsToTestRun1736172058779
+n8n-automation     | Finished migration AddStatsColumnsToTestRun1736172058779
+n8n-automation     | Starting migration CreateTestCaseExecutionTable1736947513045
+n8n-automation     | Finished migration CreateTestCaseExecutionTable1736947513045
+n8n-automation     | Starting migration AddErrorColumnsToTestRuns1737715421462
+n8n-automation     | Finished migration AddErrorColumnsToTestRuns1737715421462
+n8n-automation     | Starting migration CreateFolderTable1738709609940
+n8n-automation     | Finished migration CreateFolderTable1738709609940
+n8n-automation     | Starting migration CreateAnalyticsTables1739549398681
+n8n-automation     | Finished migration CreateAnalyticsTables1739549398681
+n8n-automation     | Starting migration UpdateParentFolderIdColumn1740445074052
+n8n-automation     | Finished migration UpdateParentFolderIdColumn1740445074052
+n8n-automation     | Starting migration RenameAnalyticsToInsights1741167584277
+n8n-automation     | Finished migration RenameAnalyticsToInsights1741167584277
+n8n-automation     | Starting migration AddScopesColumnToApiKeys1742918400000
+n8n-automation     | Finished migration AddScopesColumnToApiKeys1742918400000
+n8n-automation     | Starting migration ClearEvaluation1745322634000
+n8n-automation     | Finished migration ClearEvaluation1745322634000
+n8n-automation     | Starting migration AddWorkflowStatisticsRootCount1745587087521
+n8n-automation     | Finished migration AddWorkflowStatisticsRootCount1745587087521
+n8n-automation     | Starting migration AddWorkflowArchivedColumn1745934666076
+n8n-automation     | Finished migration AddWorkflowArchivedColumn1745934666076
+n8n-automation     | Starting migration DropRoleTable1745934666077
+n8n-automation     | Finished migration DropRoleTable1745934666077
+n8n-automation     | Starting migration AddProjectDescriptionColumn1747824239000
+n8n-automation     | Finished migration AddProjectDescriptionColumn1747824239000
+n8n-automation     | Starting migration AddLastActiveAtColumnToUser1750252139166
+n8n-automation     | Finished migration AddLastActiveAtColumnToUser1750252139166
+n8n-automation     | Starting migration AddScopeTables1750252139166
+n8n-automation     | Finished migration AddScopeTables1750252139166
+n8n-automation     | Starting migration AddRolesTables1750252139167
+n8n-automation     | Finished migration AddRolesTables1750252139167
+n8n-automation     | Starting migration LinkRoleToUserTable1750252139168
+n8n-automation     | Finished migration LinkRoleToUserTable1750252139168
+n8n-automation     | Starting migration RemoveOldRoleColumn1750252139170
+n8n-automation     | Finished migration RemoveOldRoleColumn1750252139170
+n8n-automation     | Starting migration AddInputsOutputsToTestCaseExecution1752669793000
+n8n-automation     | Finished migration AddInputsOutputsToTestCaseExecution1752669793000
+n8n-automation     | Starting migration LinkRoleToProjectRelationTable1753953244168
+n8n-automation     | Finished migration LinkRoleToProjectRelationTable1753953244168
+n8n-automation     | Starting migration CreateDataStoreTables1754475614601
+n8n-automation     | Finished migration CreateDataStoreTables1754475614601
+n8n-automation     | Starting migration ReplaceDataStoreTablesWithDataTables1754475614602
+n8n-automation     | Finished migration ReplaceDataStoreTablesWithDataTables1754475614602
+n8n-automation     | Starting migration AddTimestampsToRoleAndRoleIndexes1756906557570
+n8n-automation     | Finished migration AddTimestampsToRoleAndRoleIndexes1756906557570
+n8n-automation     | Starting migration AddAudienceColumnToApiKeys1758731786132
+n8n-automation     | Finished migration AddAudienceColumnToApiKeys1758731786132
+n8n-automation     | Starting migration AddProjectIdToVariableTable1758794506893
+n8n-automation     | Finished migration AddProjectIdToVariableTable1758794506893
+n8n-automation     | Starting migration ChangeValueTypesForInsights1759399811000
+n8n-automation     | Finished migration ChangeValueTypesForInsights1759399811000
+n8n-automation     | Starting migration CreateChatHubTables1760019379982
+n8n-automation     | Finished migration CreateChatHubTables1760019379982
+n8n-automation     | Starting migration CreateChatHubAgentTable1760020000000
+n8n-automation     | Finished migration CreateChatHubAgentTable1760020000000
+n8n-automation     | Starting migration UniqueRoleNames1760020838000
+n8n-automation     | Finished migration UniqueRoleNames1760020838000
+n8n-automation     | Starting migration CreateOAuthEntities1760116750277
+n8n-automation     | Finished migration CreateOAuthEntities1760116750277
+n8n-automation     | Starting migration CreateWorkflowDependencyTable1760314000000
+n8n-automation     | Finished migration CreateWorkflowDependencyTable1760314000000
+n8n-automation     | Starting migration DropUnusedChatHubColumns1760965142113
+n8n-automation     | Finished migration DropUnusedChatHubColumns1760965142113
+n8n-automation     | Starting migration AddWorkflowVersionColumn1761047826451
+n8n-automation     | Finished migration AddWorkflowVersionColumn1761047826451
+n8n-automation     | Starting migration ChangeDependencyInfoToJson1761655473000
+n8n-automation     | Finished migration ChangeDependencyInfoToJson1761655473000
+n8n-automation     | Starting migration AddAttachmentsToChatHubMessages1761773155024
+n8n-automation     | Finished migration AddAttachmentsToChatHubMessages1761773155024
+n8n-automation     | Starting migration AddToolsColumnToChatHubTables1761830340990
+n8n-automation     | Finished migration AddToolsColumnToChatHubTables1761830340990
+n8n-automation     | Starting migration AddWorkflowDescriptionColumn1762177736257
+n8n-automation     | Finished migration AddWorkflowDescriptionColumn1762177736257
+n8n-automation     | Starting migration BackfillMissingWorkflowHistoryRecords1762763704614
+n8n-automation     | Finished migration BackfillMissingWorkflowHistoryRecords1762763704614
+n8n-automation     | Starting migration ChangeDefaultForIdInUserTable1762771264000
+n8n-automation     | Finished migration ChangeDefaultForIdInUserTable1762771264000
+n8n-automation     | Starting migration AddIsGlobalColumnToCredentialsTable1762771954619
+n8n-automation     | Finished migration AddIsGlobalColumnToCredentialsTable1762771954619
+n8n-automation     | Starting migration AddWorkflowHistoryAutoSaveFields1762847206508
+n8n-automation     | Finished migration AddWorkflowHistoryAutoSaveFields1762847206508
+n8n-automation     | Starting migration AddActiveVersionIdColumn1763047800000
+n8n-automation     | Finished migration AddActiveVersionIdColumn1763047800000
+n8n-automation     | Starting migration ActivateExecuteWorkflowTriggerWorkflows1763048000000
+n8n-automation     | Finished migration ActivateExecuteWorkflowTriggerWorkflows1763048000000
+n8n-automation     | Starting migration ChangeOAuthStateColumnToUnboundedVarchar1763572724000
+n8n-automation     | Finished migration ChangeOAuthStateColumnToUnboundedVarchar1763572724000
+n8n-automation     | Starting migration CreateBinaryDataTable1763716655000
+n8n-automation     | Finished migration CreateBinaryDataTable1763716655000
+n8n-automation     | Starting migration CreateWorkflowPublishHistoryTable1764167920585
+n8n-automation     | Finished migration CreateWorkflowPublishHistoryTable1764167920585
+n8n-automation     | Starting migration AddCreatorIdToProjectTable1764276827837
+n8n-automation     | Finished migration AddCreatorIdToProjectTable1764276827837
+n8n-automation     | Starting migration CreateDynamicCredentialResolverTable1764682447000
+n8n-automation     | Finished migration CreateDynamicCredentialResolverTable1764682447000
+n8n-automation     | Starting migration AddDynamicCredentialEntryTable1764689388394
+n8n-automation     | Finished migration AddDynamicCredentialEntryTable1764689388394
+n8n-automation     | Starting migration BackfillMissingWorkflowHistoryRecords1765448186933
+n8n-automation     | Finished migration BackfillMissingWorkflowHistoryRecords1765448186933
+n8n-automation     | Starting migration AddResolvableFieldsToCredentials1765459448000
+n8n-automation     | Finished migration AddResolvableFieldsToCredentials1765459448000
+n8n-automation     | Starting migration AddIconToAgentTable1765788427674
+n8n-automation     | Finished migration AddIconToAgentTable1765788427674
+n8n-automation     | Starting migration ConvertAgentIdToUuid1765804780000
+n8n-automation     | Finished migration ConvertAgentIdToUuid1765804780000
+n8n-automation     | Starting migration AddAgentIdForeignKeys1765886667897
+n8n-automation     | Finished migration AddAgentIdForeignKeys1765886667897
+n8n-automation     | Starting migration AddWorkflowVersionIdToExecutionData1765892199653
+n8n-automation     | Finished migration AddWorkflowVersionIdToExecutionData1765892199653
+n8n-automation     | Starting migration AddWorkflowPublishScopeToProjectRoles1766064542000
+n8n-automation     | Added workflow:publish scope to project roles with workflow:update
+n8n-automation     | Finished migration AddWorkflowPublishScopeToProjectRoles1766064542000
+n8n-automation     | Starting migration AddChatMessageIndices1766068346315
+n8n-automation     | Finished migration AddChatMessageIndices1766068346315
+n8n-automation     | Starting migration ExpandInsightsWorkflowIdLength1766500000000
+n8n-automation     | Finished migration ExpandInsightsWorkflowIdLength1766500000000
+n8n-automation     | Starting migration ChangeWorkflowStatisticsFKToNoAction1767018516000
+n8n-automation     | Finished migration ChangeWorkflowStatisticsFKToNoAction1767018516000
+n8n-automation     | Starting migration ExpandModelColumnLength1768402473068
+n8n-automation     | Finished migration ExpandModelColumnLength1768402473068
+n8n-automation     | Starting migration AddStoredAtToExecutionEntity1768557000000
+n8n-automation     | Finished migration AddStoredAtToExecutionEntity1768557000000
+n8n-automation     | Starting migration AddDynamicCredentialUserEntryTable1768901721000
+n8n-automation     | Finished migration AddDynamicCredentialUserEntryTable1768901721000
+n8n-automation     | Starting migration AddPublishedVersionIdToWorkflowDependency1769000000000
+n8n-automation     | Finished migration AddPublishedVersionIdToWorkflowDependency1769000000000
+n8n-automation     | Starting migration CreateSecretsProviderConnectionTables1769433700000
+n8n-automation     | Finished migration CreateSecretsProviderConnectionTables1769433700000
+n8n-automation     | Starting migration CreateWorkflowPublishedVersionTable1769698710000
+n8n-automation     | Finished migration CreateWorkflowPublishedVersionTable1769698710000
+n8n-automation     | Starting migration ExpandSubjectIDColumnLength1769784356000
+n8n-automation     | Finished migration ExpandSubjectIDColumnLength1769784356000
+n8n-automation     | Starting migration AddWorkflowUnpublishScopeToCustomRoles1769900001000
+n8n-automation     | Finished migration AddWorkflowUnpublishScopeToCustomRoles1769900001000
+n8n-automation     | Starting migration CreateChatHubToolsTable1770000000000
+n8n-automation     | Finished migration CreateChatHubToolsTable1770000000000
+n8n-automation     | Starting migration ExpandProviderIdColumnLength1770000000000
+n8n-automation     | Finished migration ExpandProviderIdColumnLength1770000000000
+n8n-automation     | Starting migration CreateWorkflowBuilderSessionTable1770220686000
+n8n-automation     | Finished migration CreateWorkflowBuilderSessionTable1770220686000
+n8n-automation     | Starting migration AddScalingFieldsToTestRun1771417407753
+n8n-automation     | Finished migration AddScalingFieldsToTestRun1771417407753
+n8n-automation     | Starting migration MigrateExternalSecretsToEntityStorage1771500000000
+n8n-automation     | [MigrateExternalSecretsToEntityStorage1771500000000] No external secrets settings found, skipping
+n8n-automation     | Finished migration MigrateExternalSecretsToEntityStorage1771500000000
+n8n-automation     | Starting migration AddUnshareScopeToCustomRoles1771500000001
+n8n-automation     | Finished migration AddUnshareScopeToCustomRoles1771500000001
+n8n-automation     | Starting migration AddFilesColumnToChatHubAgents1771500000002
+n8n-automation     | Finished migration AddFilesColumnToChatHubAgents1771500000002
+n8n-automation     | Starting migration AddSuggestedPromptsToAgentTable1772000000000
+n8n-automation     | Finished migration AddSuggestedPromptsToAgentTable1772000000000
+n8n-automation     | Starting migration AddRoleColumnToProjectSecretsProviderAccess1772619247761
+n8n-automation     | Finished migration AddRoleColumnToProjectSecretsProviderAccess1772619247761
+n8n-automation     | Starting migration ChangeWorkflowPublishedVersionFKsToRestrict1772619247762
+n8n-automation     | Finished migration ChangeWorkflowPublishedVersionFKsToRestrict1772619247762
+n8n-automation     | Starting migration AddTypeToChatHubSessions1772700000000
+n8n-automation     | Finished migration AddTypeToChatHubSessions1772700000000
+n8n-automation     | Starting migration CreateRoleMappingRuleTable1772800000000
+n8n-automation     | Finished migration CreateRoleMappingRuleTable1772800000000
+n8n-automation     | Starting migration CreateCredentialDependencyTable1773000000000
+n8n-automation     | [CreateCredentialDependencyTable1773000000000] Backfilled credential dependencies for 0 credentials. Inserted 0 dependencies.
+n8n-automation     | Finished migration CreateCredentialDependencyTable1773000000000
+n8n-automation     | Starting migration AddRestoreFieldsToWorkflowBuilderSession1774280963551
+n8n-automation     | Finished migration AddRestoreFieldsToWorkflowBuilderSession1774280963551
+n8n-automation     | Starting migration CreateInstanceVersionHistoryTable1774854660000
+n8n-automation     | Finished migration CreateInstanceVersionHistoryTable1774854660000
+n8n-automation     | Starting migration CreateInstanceAiTables1775000000000
+n8n-automation     | Finished migration CreateInstanceAiTables1775000000000
+n8n-automation     | Starting migration CreateTokenExchangeJtiTable1775116241000
+n8n-automation     | Finished migration CreateTokenExchangeJtiTable1775116241000
+n8n-automation     | n8n Task Broker ready on 127.0.0.1, port 5679
+n8n-automation     | Failed to start Python task runner in internal mode. because Python 3 is missing from this system. Launching a Python runner in internal mode is intended only for debugging and is not recommended for production. Users are encouraged to deploy in external mode. See: https://docs.n8n.io/hosting/configuration/task-runners/#setting-up-external-mode
+n8n-automation     | [license SDK] Skipping renewal on init: license cert is not initialized
+n8n-automation     | Registered runner "JS Task Runner" (4EnKF1wethPCvNLYy6khb) 
+n8n-automation     | Version: 2.16.1
+n8n-automation     | Building workflow dependency index...
+n8n-automation     | Finished building workflow dependency index. Processed 0 draft workflows, 0 published workflows.
+n8n-automation     | 
+n8n-automation     | Editor is now accessible via:
+n8n-automation     | http://localhost:5678
+mongodb            | {"t":{"$date":"2026-05-18T21:21:38.516+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:44058","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"b01a2fcd-e4ea-42d3-8f09-2ebad1fcc8f9"}},"connectionId":13,"connectionCount":4}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:38.521+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn13","msg":"client metadata","attr":{"remote":"127.0.0.1:44058","client":"conn13","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:38.522+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn13","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:44058","doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:38.543+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:44060","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"05556f31-0706-4c25-82bd-5e8dc4b1eae2"}},"connectionId":14,"connectionCount":5}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:38.545+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn14","msg":"client metadata","attr":{"remote":"127.0.0.1:44060","client":"conn14","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:38.545+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn14","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:44060","doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:38.578+00:00"},"s":"I",  "c":"NETWORK",  "id":6788700, "ctx":"conn14","msg":"Received first command on ingress connection since session start or auth handshake","attr":{"elapsedMillis":33}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:38.780+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:44066","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"f9701b54-24ac-4bfd-9aaf-789cb98da268"}},"connectionId":15,"connectionCount":6}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:38.781+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:44082","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"1deccef8-be17-4ba8-b360-0f1bd8585934"}},"connectionId":16,"connectionCount":7}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:38.786+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn15","msg":"client metadata","attr":{"remote":"127.0.0.1:44066","client":"conn15","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:38.786+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn15","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:44066","doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:38.788+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn16","msg":"client metadata","attr":{"remote":"127.0.0.1:44082","client":"conn16","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:38.788+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn16","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:44082","doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:38.801+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:44084","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"c6804dcd-c429-4e1b-af45-b3ef72e0ec16"}},"connectionId":17,"connectionCount":8}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:38.806+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn17","msg":"client metadata","attr":{"remote":"127.0.0.1:44084","client":"conn17","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:38.807+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn17","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:44084","doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:38.819+00:00"},"s":"I",  "c":"NETWORK",  "id":6788700, "ctx":"conn17","msg":"Received first command on ingress connection since session start or auth handshake","attr":{"elapsedMillis":12}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:38.833+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn13","msg":"Connection ended","attr":{"remote":"127.0.0.1:44058","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"b01a2fcd-e4ea-42d3-8f09-2ebad1fcc8f9"}},"connectionId":13,"connectionCount":7}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:38.834+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn16","msg":"Connection ended","attr":{"remote":"127.0.0.1:44082","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"1deccef8-be17-4ba8-b360-0f1bd8585934"}},"connectionId":16,"connectionCount":6}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:38.835+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn15","msg":"Connection ended","attr":{"remote":"127.0.0.1:44066","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"f9701b54-24ac-4bfd-9aaf-789cb98da268"}},"connectionId":15,"connectionCount":5}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:38.835+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn14","msg":"Connection ended","attr":{"remote":"127.0.0.1:44060","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"05556f31-0706-4c25-82bd-5e8dc4b1eae2"}},"connectionId":14,"connectionCount":4}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:39.039+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn17","msg":"Connection ended","attr":{"remote":"127.0.0.1:44084","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"c6804dcd-c429-4e1b-af45-b3ef72e0ec16"}},"connectionId":17,"connectionCount":3}}
+user-service       | 127.0.0.1 - - [18/May/2026:21:21:43 +0000] "GET /health HTTP/1.1" 200 58 "-" "curl/8.19.0"
+analytics-service  | INFO:     127.0.0.1:34634 - "GET /health HTTP/1.1" 200 OK
+course-service     | INFO:     127.0.0.1:57600 - "GET /health HTTP/1.1" 200 OK
+ai-tutor-service   | INFO:     127.0.0.1:49634 - "GET /health HTTP/1.1" 200 OK
+mongodb            | {"t":{"$date":"2026-05-18T21:21:49.284+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:55476","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"053b098e-a24b-4e26-9764-b51f46093d15"}},"connectionId":18,"connectionCount":4}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:49.287+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn18","msg":"client metadata","attr":{"remote":"127.0.0.1:55476","client":"conn18","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:49.287+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn18","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:55476","doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:49.297+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:55490","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"c9123c29-b7b9-454c-8456-f841b7d67994"}},"connectionId":19,"connectionCount":5}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:49.301+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn19","msg":"client metadata","attr":{"remote":"127.0.0.1:55490","client":"conn19","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:49.301+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn19","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:55490","doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:49.323+00:00"},"s":"I",  "c":"NETWORK",  "id":6788700, "ctx":"conn19","msg":"Received first command on ingress connection since session start or auth handshake","attr":{"elapsedMillis":21}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:49.427+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:55498","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"818cc89d-de3c-42c0-ae8f-ea2dd66a8b22"}},"connectionId":20,"connectionCount":6}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:49.427+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:55512","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"50f9d8ac-a791-4295-a81a-5d5289bbbdf4"}},"connectionId":21,"connectionCount":7}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:49.432+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn20","msg":"client metadata","attr":{"remote":"127.0.0.1:55498","client":"conn20","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:49.433+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn20","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:55498","doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:49.433+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn21","msg":"client metadata","attr":{"remote":"127.0.0.1:55512","client":"conn21","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:49.433+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn21","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:55512","doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:49.443+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:55526","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"c9751802-49c4-41af-95c9-7c161274e7f6"}},"connectionId":22,"connectionCount":8}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:49.448+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn22","msg":"client metadata","attr":{"remote":"127.0.0.1:55526","client":"conn22","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:49.448+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn22","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:55526","doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:49.460+00:00"},"s":"I",  "c":"NETWORK",  "id":6788700, "ctx":"conn22","msg":"Received first command on ingress connection since session start or auth handshake","attr":{"elapsedMillis":12}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:49.468+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn18","msg":"Connection ended","attr":{"remote":"127.0.0.1:55476","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"053b098e-a24b-4e26-9764-b51f46093d15"}},"connectionId":18,"connectionCount":7}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:49.470+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn22","msg":"Connection ended","attr":{"remote":"127.0.0.1:55526","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"c9751802-49c4-41af-95c9-7c161274e7f6"}},"connectionId":22,"connectionCount":6}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:49.470+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn21","msg":"Connection ended","attr":{"remote":"127.0.0.1:55512","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"50f9d8ac-a791-4295-a81a-5d5289bbbdf4"}},"connectionId":21,"connectionCount":5}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:49.471+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn20","msg":"Connection ended","attr":{"remote":"127.0.0.1:55498","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"818cc89d-de3c-42c0-ae8f-ea2dd66a8b22"}},"connectionId":20,"connectionCount":4}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:49.471+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn19","msg":"Connection ended","attr":{"remote":"127.0.0.1:55490","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"c9123c29-b7b9-454c-8456-f841b7d67994"}},"connectionId":19,"connectionCount":3}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:59.923+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:49560","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"58874cd0-4751-4622-b2ec-4fffd2aff6f3"}},"connectionId":23,"connectionCount":4}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:59.926+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn23","msg":"client metadata","attr":{"remote":"127.0.0.1:49560","client":"conn23","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:59.926+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn23","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:49560","doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:59.933+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:49574","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"86db51f0-5ea0-4b81-bbbf-a1520e55319e"}},"connectionId":24,"connectionCount":5}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:59.935+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn24","msg":"client metadata","attr":{"remote":"127.0.0.1:49574","client":"conn24","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:59.936+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn24","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:49574","doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:21:59.962+00:00"},"s":"I",  "c":"NETWORK",  "id":6788700, "ctx":"conn24","msg":"Received first command on ingress connection since session start or auth handshake","attr":{"elapsedMillis":27}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:00.061+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:49588","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"f5510f30-b40f-434f-af5c-bed8fceae783"}},"connectionId":25,"connectionCount":6}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:00.061+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:49596","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"f66afce7-6a33-42ad-bf33-da6dec65dfa3"}},"connectionId":26,"connectionCount":7}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:00.071+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn26","msg":"client metadata","attr":{"remote":"127.0.0.1:49596","client":"conn26","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:00.071+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn25","msg":"client metadata","attr":{"remote":"127.0.0.1:49588","client":"conn25","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:00.071+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn26","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:49596","doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:00.071+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn25","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:49588","doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:00.078+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:49606","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"0378e2ef-b228-4140-85ad-e239ab107177"}},"connectionId":27,"connectionCount":8}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:00.100+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn27","msg":"client metadata","attr":{"remote":"127.0.0.1:49606","client":"conn27","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:00.100+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn27","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:49606","doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:00.101+00:00"},"s":"I",  "c":"NETWORK",  "id":6788700, "ctx":"conn27","msg":"Received first command on ingress connection since session start or auth handshake","attr":{"elapsedMillis":1}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:00.109+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn23","msg":"Connection ended","attr":{"remote":"127.0.0.1:49560","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"58874cd0-4751-4622-b2ec-4fffd2aff6f3"}},"connectionId":23,"connectionCount":7}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:00.111+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn27","msg":"Connection ended","attr":{"remote":"127.0.0.1:49606","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"0378e2ef-b228-4140-85ad-e239ab107177"}},"connectionId":27,"connectionCount":6}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:00.112+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn24","msg":"Connection ended","attr":{"remote":"127.0.0.1:49574","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"86db51f0-5ea0-4b81-bbbf-a1520e55319e"}},"connectionId":24,"connectionCount":5}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:00.112+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn25","msg":"Connection ended","attr":{"remote":"127.0.0.1:49588","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"f5510f30-b40f-434f-af5c-bed8fceae783"}},"connectionId":25,"connectionCount":4}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:00.113+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn26","msg":"Connection ended","attr":{"remote":"127.0.0.1:49596","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"f66afce7-6a33-42ad-bf33-da6dec65dfa3"}},"connectionId":26,"connectionCount":3}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:10.619+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1779139330,"ts_usec":619527,"thread":"1:0x75c2aed93640","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":6,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 22, snapshot max: 22 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 7"}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:13.323+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:54514","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"3c7413b8-2117-4619-8ba9-e866350c33b4"}},"connectionId":28,"connectionCount":4}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:13.326+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn28","msg":"client metadata","attr":{"remote":"127.0.0.1:54514","client":"conn28","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:13.326+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn28","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:54514","doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:13.338+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:54516","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"a8e759fe-2f12-4a7b-ab63-12c013701387"}},"connectionId":29,"connectionCount":5}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:13.340+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn29","msg":"client metadata","attr":{"remote":"127.0.0.1:54516","client":"conn29","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:13.340+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn29","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:54516","doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:13.364+00:00"},"s":"I",  "c":"NETWORK",  "id":6788700, "ctx":"conn29","msg":"Received first command on ingress connection since session start or auth handshake","attr":{"elapsedMillis":23}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:13.467+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:54522","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"5302eddd-a2df-4248-a04d-b0633866643d"}},"connectionId":30,"connectionCount":6}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:13.467+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:54526","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"9cd8290a-c125-4e48-9865-63de290c828e"}},"connectionId":31,"connectionCount":7}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:13.472+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn30","msg":"client metadata","attr":{"remote":"127.0.0.1:54522","client":"conn30","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:13.472+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn30","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:54522","doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:13.472+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn31","msg":"client metadata","attr":{"remote":"127.0.0.1:54526","client":"conn31","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:13.472+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn31","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:54526","doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:13.479+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:54538","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"91a1ae11-4e7a-4bec-81b5-442be75f7d4d"}},"connectionId":32,"connectionCount":8}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:13.485+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn32","msg":"client metadata","attr":{"remote":"127.0.0.1:54538","client":"conn32","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:13.485+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn32","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:54538","doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:13.493+00:00"},"s":"I",  "c":"NETWORK",  "id":6788700, "ctx":"conn32","msg":"Received first command on ingress connection since session start or auth handshake","attr":{"elapsedMillis":7}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:13.500+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn28","msg":"Connection ended","attr":{"remote":"127.0.0.1:54514","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"3c7413b8-2117-4619-8ba9-e866350c33b4"}},"connectionId":28,"connectionCount":7}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:13.501+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn32","msg":"Connection ended","attr":{"remote":"127.0.0.1:54538","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"91a1ae11-4e7a-4bec-81b5-442be75f7d4d"}},"connectionId":32,"connectionCount":6}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:13.502+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn31","msg":"Connection ended","attr":{"remote":"127.0.0.1:54526","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"9cd8290a-c125-4e48-9865-63de290c828e"}},"connectionId":31,"connectionCount":5}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:13.502+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn30","msg":"Connection ended","attr":{"remote":"127.0.0.1:54522","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"5302eddd-a2df-4248-a04d-b0633866643d"}},"connectionId":30,"connectionCount":4}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:13.503+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn29","msg":"Connection ended","attr":{"remote":"127.0.0.1:54516","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"a8e759fe-2f12-4a7b-ab63-12c013701387"}},"connectionId":29,"connectionCount":3}}
+user-service       | 127.0.0.1 - - [18/May/2026:21:22:15 +0000] "GET /health HTTP/1.1" 200 58 "-" "curl/8.19.0"
+analytics-service  | INFO:     127.0.0.1:51242 - "GET /health HTTP/1.1" 200 OK
+course-service     | INFO:     127.0.0.1:38880 - "GET /health HTTP/1.1" 200 OK
+ai-tutor-service   | INFO:     127.0.0.1:39860 - "GET /health HTTP/1.1" 200 OK
+mongodb            | {"t":{"$date":"2026-05-18T21:22:23.953+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:36624","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"34e70492-a4c6-488b-95ee-681871b7b54f"}},"connectionId":33,"connectionCount":4}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:23.957+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn33","msg":"client metadata","attr":{"remote":"127.0.0.1:36624","client":"conn33","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:23.957+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn33","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:36624","doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:23.965+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:36626","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"2e8c704a-8692-425f-8ece-65b046c09f73"}},"connectionId":34,"connectionCount":5}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:23.968+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn34","msg":"client metadata","attr":{"remote":"127.0.0.1:36626","client":"conn34","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:23.968+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn34","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:36626","doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:23.992+00:00"},"s":"I",  "c":"NETWORK",  "id":6788700, "ctx":"conn34","msg":"Received first command on ingress connection since session start or auth handshake","attr":{"elapsedMillis":24}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:24.092+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:36632","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"0e4c1205-4f84-4c71-b30f-42f8fd263a94"}},"connectionId":35,"connectionCount":6}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:24.092+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:36638","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"3517b517-5eb3-418e-a73b-cab8498b2152"}},"connectionId":36,"connectionCount":7}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:24.097+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn35","msg":"client metadata","attr":{"remote":"127.0.0.1:36632","client":"conn35","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:24.097+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn35","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:36632","doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:24.097+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn36","msg":"client metadata","attr":{"remote":"127.0.0.1:36638","client":"conn36","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:24.098+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn36","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:36638","doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:24.109+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:36646","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"30c9d7cc-68fa-409e-9022-d77d632fae55"}},"connectionId":37,"connectionCount":8}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:24.113+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn37","msg":"client metadata","attr":{"remote":"127.0.0.1:36646","client":"conn37","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:24.113+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn37","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:36646","doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:24.122+00:00"},"s":"I",  "c":"NETWORK",  "id":6788700, "ctx":"conn37","msg":"Received first command on ingress connection since session start or auth handshake","attr":{"elapsedMillis":9}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:24.128+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn33","msg":"Connection ended","attr":{"remote":"127.0.0.1:36624","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"34e70492-a4c6-488b-95ee-681871b7b54f"}},"connectionId":33,"connectionCount":7}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:24.129+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn37","msg":"Connection ended","attr":{"remote":"127.0.0.1:36646","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"30c9d7cc-68fa-409e-9022-d77d632fae55"}},"connectionId":37,"connectionCount":6}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:24.129+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn36","msg":"Connection ended","attr":{"remote":"127.0.0.1:36638","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"3517b517-5eb3-418e-a73b-cab8498b2152"}},"connectionId":36,"connectionCount":5}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:24.129+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn35","msg":"Connection ended","attr":{"remote":"127.0.0.1:36632","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"0e4c1205-4f84-4c71-b30f-42f8fd263a94"}},"connectionId":35,"connectionCount":4}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:24.129+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn34","msg":"Connection ended","attr":{"remote":"127.0.0.1:36626","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"2e8c704a-8692-425f-8ece-65b046c09f73"}},"connectionId":34,"connectionCount":3}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:34.603+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:60792","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"b198536f-8f84-4907-bab1-581cc1836bd0"}},"connectionId":38,"connectionCount":4}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:34.607+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn38","msg":"client metadata","attr":{"remote":"127.0.0.1:60792","client":"conn38","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:34.607+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn38","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:60792","doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:34.616+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:60804","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"eba534cf-2098-437b-a21b-53045629b46d"}},"connectionId":39,"connectionCount":5}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:34.619+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn39","msg":"client metadata","attr":{"remote":"127.0.0.1:60804","client":"conn39","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:34.619+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn39","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:60804","doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:34.642+00:00"},"s":"I",  "c":"NETWORK",  "id":6788700, "ctx":"conn39","msg":"Received first command on ingress connection since session start or auth handshake","attr":{"elapsedMillis":23}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:34.750+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:60818","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"b8a8fbb6-229a-495d-ab6a-2f22e4e20a91"}},"connectionId":40,"connectionCount":6}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:34.750+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:60820","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"22efa639-1fd4-4fc7-bc15-0c3b9896c6b3"}},"connectionId":41,"connectionCount":7}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:34.755+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn40","msg":"client metadata","attr":{"remote":"127.0.0.1:60818","client":"conn40","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:34.755+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn40","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:60818","doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:34.756+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn41","msg":"client metadata","attr":{"remote":"127.0.0.1:60820","client":"conn41","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:34.757+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn41","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:60820","doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:34.761+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:60822","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"03ffcf98-e935-4817-9272-1af4924e5b79"}},"connectionId":42,"connectionCount":8}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:34.763+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn42","msg":"client metadata","attr":{"remote":"127.0.0.1:60822","client":"conn42","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:34.763+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn42","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:60822","doc":{"application":{"name":"mongosh 2.8.3"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.3"},"platform":"Node.js v24.15.0, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:34.770+00:00"},"s":"I",  "c":"NETWORK",  "id":6788700, "ctx":"conn42","msg":"Received first command on ingress connection since session start or auth handshake","attr":{"elapsedMillis":6}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:34.777+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn38","msg":"Connection ended","attr":{"remote":"127.0.0.1:60792","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"b198536f-8f84-4907-bab1-581cc1836bd0"}},"connectionId":38,"connectionCount":7}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:34.778+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn42","msg":"Connection ended","attr":{"remote":"127.0.0.1:60822","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"03ffcf98-e935-4817-9272-1af4924e5b79"}},"connectionId":42,"connectionCount":6}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:34.779+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn41","msg":"Connection ended","attr":{"remote":"127.0.0.1:60820","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"22efa639-1fd4-4fc7-bc15-0c3b9896c6b3"}},"connectionId":41,"connectionCount":5}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:34.780+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn40","msg":"Connection ended","attr":{"remote":"127.0.0.1:60818","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"b8a8fbb6-229a-495d-ab6a-2f22e4e20a91"}},"connectionId":40,"connectionCount":4}}
+mongodb            | {"t":{"$date":"2026-05-18T21:22:34.780+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn39","msg":"Connection ended","attr":{"remote":"127.0.0.1:60804","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"eba534cf-2098-437b-a21b-53045629b46d"}},"connectionId":39,"connectionCount":3}}
+
