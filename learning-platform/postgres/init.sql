@@ -1,12 +1,19 @@
 -- ============================================================
 -- PostgreSQL Initialization Script
 -- Learning Platform
+-- Ce script tourne une seule fois au premier démarrage
 -- ============================================================
 
--- Create n8n database
-CREATE DATABASE n8n_db;
+-- Créer la base n8n_db si elle n'existe pas encore
+DO $$
+BEGIN
+   IF NOT EXISTS (SELECT FROM pg_database WHERE datname = 'n8n_db') THEN
+      PERFORM dblink_exec('dbname=postgres', 'CREATE DATABASE n8n_db');
+   END IF;
+END
+$$;
 
--- Connect to learning_platform database
+-- Se connecter à learning_platform (déjà créée par POSTGRES_DB)
 \c learning_platform;
 
 -- ============================================================
@@ -196,7 +203,8 @@ VALUES
     8.0,
     '["ci-cd", "github-actions", "automation", "devops"]',
     '["Créer des workflows GitHub Actions", "Automatiser les tests", "Déployer automatiquement", "Gérer les secrets et environnements"]'
-);
+)
+ON CONFLICT DO NOTHING;
 
 -- Seed lessons for course 1
 INSERT INTO lessons (course_id, title, content, duration_minutes, "order", is_free_preview, lesson_type)
@@ -208,7 +216,8 @@ VALUES
 (1, 'Docker Compose', 'Orchestrez plusieurs conteneurs avec Docker Compose.', 60, 5, false, 'video'),
 (1, 'Volumes et persistance', 'Gérez la persistance des données avec les volumes Docker.', 30, 6, false, 'video'),
 (1, 'Réseaux Docker', 'Configurez les réseaux pour la communication entre conteneurs.', 25, 7, false, 'video'),
-(1, 'Docker en production', 'Bonnes pratiques pour déployer Docker en production.', 40, 8, false, 'video');
+(1, 'Docker en production', 'Bonnes pratiques pour déployer Docker en production.', 40, 8, false, 'video')
+ON CONFLICT DO NOTHING;
 
 -- Seed analytics events
 INSERT INTO analytics_events (event_type, user_id, course_id, data)
@@ -220,4 +229,5 @@ VALUES
 ('enrollment', 'user-002', 2, '{"price": 49.99}'),
 ('course_view', 'user-003', 3, '{"source": "recommendation"}'),
 ('enrollment', 'user-003', 3, '{"price": 0}'),
-('completion', 'user-001', 1, '{"certificate": true}');
+('completion', 'user-001', 1, '{"certificate": true}')
+ON CONFLICT DO NOTHING;

@@ -11,6 +11,7 @@ const userRoutes = require('./routes/users');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://admin:admin_secure_password@mongodb:27017/users_db?authSource=admin';
 
 // Middleware
 app.use(helmet());
@@ -28,9 +29,16 @@ app.use('/api/auth', authLimiter);
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 
-// Health check
+// Health check — répond toujours, même si MongoDB n'est pas encore connecté
 app.get('/health', (req, res) => {
-  res.json({ status: 'ok', service: 'user-service', version: '1.0.0' });
+  const mongoState = mongoose.connection.readyState;
+  const states = { 0: 'disconnected', 1: 'connected', 2: 'connecting', 3: 'disconnecting' };
+  res.json({
+    status: mongoState === 1 ? 'ok' : 'degraded',
+    service: 'user-service',
+    version: '1.0.0',
+    mongodb: states[mongoState] || 'unknown',
+  });
 });
 
 // 404 handler
@@ -44,16 +52,37 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Internal server error' });
 });
 
-// Connect to MongoDB
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://admin:admin_secure_password@mongodb:27017/users_db?authSource=admin';
-mongoose.connect(MONGO_URI)
-  .then(() => {
-    console.log('Connected to MongoDB');
-    app.listen(PORT, '0.0.0.0', () => {
-      console.log(`User Service running on port ${PORT}`);
+// Démarre le serveur HTTP immédiatement (healthcheck dispo dès le début)
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`User Service running on port ${PORT}`);
+  connectMongo();
+});
+
+// Connexion MongoDB avec retry automatique
+const RETRY_DELAY_MS = 5000;
+const MAX_RETRIES = 12; // 12 × 5s = 1 minute
+
+async function connectMongo(attempt = 1) {
+  try {
+    console.log(`[MongoDB] Connection attempt ${attempt}/${MAX_RETRIES}...`);
+    await mongoose.connect(MONGO_URI, {
+      serverSelectionTimeoutMS: 5000,
+      connectTimeoutMS: 10000,
     });
-  })
-  .catch(err => {
-    console.error('MongoDB connection error:', err);
-    process.exit(1);
-  });
+    console.log('[MongoDB] Connected successfully');
+  } catch (err) {
+    console.error(`[MongoDB] Connection failed (attempt ${attempt}): ${err.message}`);
+    if (attempt >= MAX_RETRIES) {
+      console.error('[MongoDB] Max retries reached. Service will continue degraded — restart to retry.');
+      return;
+    }
+    console.log(`[MongoDB] Retrying in ${RETRY_DELAY_MS / 1000}s...`);
+    setTimeout(() => connectMongo(attempt + 1), RETRY_DELAY_MS);
+  }
+}
+
+// Reconnexion automatique si la connexion est perdue
+mongoose.connection.on('disconnected', () => {
+  console.warn('[MongoDB] Connection lost. Reconnecting...');
+  setTimeout(() => connectMongo(), RETRY_DELAY_MS);
+});

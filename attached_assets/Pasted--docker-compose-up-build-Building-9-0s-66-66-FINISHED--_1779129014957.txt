@@ -1,0 +1,200 @@
+    docker compose up --build
+[+] Building 9.0s (66/66) FINISHED                                                                                        
+ => [internal] load local bake definitions                                                                           0.1s
+ => => reading from stdin 3.63kB                                                                                     0.1s
+ => [course-service internal] load build definition from Dockerfile                                                  0.2s
+ => => transferring dockerfile: 502B                                                                                 0.0s
+ => [user-service internal] load build definition from Dockerfile                                                    0.1s
+ => => transferring dockerfile: 335B                                                                                 0.1s
+ => [ai-tutor-service internal] load build definition from Dockerfile                                                0.3s
+ => => transferring dockerfile: 502B                                                                                 0.0s
+ => [analytics-service internal] load build definition from Dockerfile                                               0.1s
+ => => transferring dockerfile: 502B                                                                                 0.0s
+ => [learning-frontend internal] load build definition from Dockerfile                                               0.2s
+ => => transferring dockerfile: 878B                                                                                 0.0s
+ => [nginx-gateway internal] load build definition from Dockerfile                                                   0.2s
+ => => transferring dockerfile: 305B                                                                                 0.0s
+ => [user-service internal] load metadata for docker.io/library/node:20-alpine                                       0.9s
+ => [analytics-service internal] load metadata for docker.io/library/python:3.12-slim                                0.9s
+ => [nginx-gateway internal] load metadata for docker.io/library/nginx:1.25-alpine                                   0.7s
+ => [nginx-gateway internal] load .dockerignore                                                                      0.1s
+ => => transferring context: 2B                                                                                      0.0s
+ => [course-service internal] load .dockerignore                                                                     0.3s
+ => => transferring context: 2B                                                                                      0.0s
+ => [user-service internal] load .dockerignore                                                                       0.1s
+ => => transferring context: 2B                                                                                      0.0s
+ => [learning-frontend internal] load .dockerignore                                                                  0.1s
+ => => transferring context: 2B                                                                                      0.0s
+ => [ai-tutor-service internal] load .dockerignore                                                                   0.3s
+ => => transferring context: 2B                                                                                      0.0s
+ => [analytics-service internal] load .dockerignore                                                                  0.3s
+ => => transferring context: 2B                                                                                      0.0s
+ => [nginx-gateway 1/3] FROM docker.io/library/nginx:1.25-alpine@sha256:516475cc129da42866742567714ddc681e5eed7b9ee  0.1s
+ => => resolve docker.io/library/nginx:1.25-alpine@sha256:516475cc129da42866742567714ddc681e5eed7b9ee0b9e9c015e464b  0.1s
+ => [nginx-gateway internal] load build context                                                                      0.3s
+ => => transferring context: 32B                                                                                     0.0s
+ => [learning-frontend internal] load build context                                                                  2.2s
+ => => transferring context: 1.44MB                                                                                  2.1s
+ => [learning-frontend deps 1/5] FROM docker.io/library/node:20-alpine@sha256:fb4cd12c85ee03686f6af5362a0b0d56d50c5  0.1s
+ => => resolve docker.io/library/node:20-alpine@sha256:fb4cd12c85ee03686f6af5362a0b0d56d50c58a04632e6c0fb8363f60937  0.1s
+ => [user-service internal] load build context                                                                       0.3s
+ => => transferring context: 370B                                                                                    0.0s
+ => [course-service 1/6] FROM docker.io/library/python:3.12-slim@sha256:401f6e1a67dad31a1bd78e9ad22d0ee0a3b52154e6b  0.4s
+ => => resolve docker.io/library/python:3.12-slim@sha256:401f6e1a67dad31a1bd78e9ad22d0ee0a3b52154e6bd30e90be696bb6a  0.3s
+ => [analytics-service internal] load build context                                                                  0.2s
+ => => transferring context: 154B                                                                                    0.0s
+ => [ai-tutor-service internal] load build context                                                                   0.2s
+ => => transferring context: 154B                                                                                    0.0s
+ => [course-service internal] load build context                                                                     0.2s
+ => => transferring context: 402B                                                                                    0.0s
+ => CACHED [nginx-gateway 2/3] RUN apk add --no-cache curl                                                           0.0s
+ => CACHED [nginx-gateway 3/3] COPY nginx.conf /etc/nginx/nginx.conf                                                 0.0s
+ => CACHED [learning-frontend deps 2/5] WORKDIR /app                                                                 0.0s
+ => CACHED [learning-frontend deps 3/5] RUN apk add --no-cache curl                                                  0.0s
+ => CACHED [user-service 4/6] COPY package.json .                                                                    0.0s
+ => CACHED [user-service 5/6] RUN npm install --production                                                           0.0s
+ => CACHED [user-service 6/6] COPY . .                                                                               0.0s
+ => [nginx-gateway] exporting to image                                                                               1.9s
+ => => exporting layers                                                                                              0.0s
+ => => exporting manifest sha256:bfbd0e35578f13261e7835e7e95b7a6d54b41e335d9294c0566399770ea0e5c5                    0.1s
+ => => exporting config sha256:8c8b410895086d304825e8fe2c8417fb6d43351289407010306d5b03daf4c199                      0.1s
+ => => exporting attestation manifest sha256:605ef37f4d6ce0e3513fc4655cf5cfc855f5c919e834f6693a5b563826df5621        0.7s
+ => => exporting manifest list sha256:bf84a4dbc59b5cd727adb6d2a425ebe1f3bc700b79590e3e6d6364966545b664               0.2s
+ => => naming to docker.io/library/learning-platform-nginx-gateway:latest                                            0.1s
+ => => unpacking to docker.io/library/learning-platform-nginx-gateway:latest                                         0.2s
+ => [user-service] exporting to image                                                                                2.1s
+ => => exporting layers                                                                                              0.0s
+ => => exporting manifest sha256:55b986baf84342987b06b5ce4724cfa0eef18f85ab0a8eba114ffd51ad74968f                    0.1s
+ => => exporting config sha256:0fb00c509fcf3941e3318e3e8a76a13a03a542c7bdb5071d692f7bb0a0ad8ce4                      0.1s
+ => => exporting attestation manifest sha256:2a5fd83b7cf434ec2ac1db10cb50f33b6cc2bf11dfce7ea8047c8102e9cc0ea7        0.7s
+ => => exporting manifest list sha256:777b33f33550464a841392a964a76871df81d757be05429677f3eaf4ca7514ba               0.3s
+ => => naming to docker.io/library/learning-platform-user-service:latest                                             0.1s
+ => => unpacking to docker.io/library/learning-platform-user-service:latest                                          0.1s
+ => CACHED [ai-tutor-service 2/6] WORKDIR /app                                                                       0.0s
+ => CACHED [ai-tutor-service 3/6] RUN apt-get update && apt-get install -y --no-install-recommends     curl     &&   0.0s
+ => CACHED [analytics-service 4/6] COPY requirements.txt .                                                           0.0s
+ => CACHED [analytics-service 5/6] RUN pip install --no-cache-dir -r requirements.txt                                0.0s
+ => CACHED [analytics-service 6/6] COPY . .                                                                          0.0s
+ => CACHED [course-service 4/6] COPY requirements.txt .                                                              0.0s
+ => CACHED [course-service 5/6] RUN pip install --no-cache-dir -r requirements.txt                                   0.0s
+ => CACHED [course-service 6/6] COPY . .                                                                             0.0s
+ => CACHED [ai-tutor-service 4/6] COPY requirements.txt .                                                            0.0s
+ => CACHED [ai-tutor-service 5/6] RUN pip install --no-cache-dir -r requirements.txt                                 0.0s
+ => CACHED [ai-tutor-service 6/6] COPY . .                                                                           0.0s
+ => [course-service] exporting to image                                                                              1.7s
+ => => exporting layers                                                                                              0.1s
+ => => exporting manifest sha256:f4fcac7c5016c6305af07c8cea7ebde80c6dedd1f9bb7b2468d2782f0aab733f                    0.2s
+ => => exporting config sha256:52875b561511794d810e10b6e76641bd3bf8c19800f1e8d1135bc83dd01dfef8                      0.1s
+ => => exporting attestation manifest sha256:4ab32a63e72566aac8e4f16c09043f2ef56e8597b9dbdfb4fd84cd353777cc8d        0.3s
+ => => exporting manifest list sha256:e511331581481ba3607c7955758a693fc666187bddc1857154fdc4141e36de07               0.2s
+ => => naming to docker.io/library/learning-platform-course-service:latest                                           0.2s
+ => => unpacking to docker.io/library/learning-platform-course-service:latest                                        0.1s
+ => [ai-tutor-service] exporting to image                                                                            1.7s
+ => => exporting layers                                                                                              0.0s
+ => => exporting manifest sha256:9ee0605a19b74e66277d52166582c4ab39ec40c46bf357fda6d4416a3835ed8f                    0.2s
+ => => exporting config sha256:197b124090e85ef632b0f41470b63edf34214e77ae594884fe0ea259e3a9db5a                      0.1s
+ => => exporting attestation manifest sha256:d935b535ef4868bc7a4ada07308bfd1cb54abd7ebe943d80a687824c13f41940        0.4s
+ => => exporting manifest list sha256:631ee4fcc76ab3e32d66765b943a359136d0e13af90dd961ded62b5e2add9bca               0.2s
+ => => naming to docker.io/library/learning-platform-ai-tutor-service:latest                                         0.2s
+ => => unpacking to docker.io/library/learning-platform-ai-tutor-service:latest                                      0.1s
+ => [analytics-service] exporting to image                                                                           1.7s
+ => => exporting layers                                                                                              0.1s
+ => => exporting manifest sha256:99d94343d7be724e8277d918f5dd21b72991596f4758b9f1ba978b3504dfd5fe                    0.2s
+ => => exporting config sha256:5b3eb27308a037e10b8c6ac0635861485c4eb278906e6d41fb0fcc4af96a1847                      0.1s
+ => => exporting attestation manifest sha256:a2075376cf79f294514653c3a5e282e66fa5b87966d4fa6c2bd9d9dd78086e70        0.3s
+ => => exporting manifest list sha256:bf82362ed0cc62c0c6d42bb1cd65537f98d6365d64958a055aff36ae8388383e               0.3s
+ => => naming to docker.io/library/learning-platform-analytics-service:latest                                        0.1s
+ => => unpacking to docker.io/library/learning-platform-analytics-service:latest                                     0.1s
+ => CACHED [learning-frontend runner 3/8] RUN apk add --no-cache curl                                                0.0s
+ => CACHED [learning-frontend runner 4/8] RUN addgroup --system --gid 1001 nodejs                                    0.0s
+ => CACHED [learning-frontend runner 5/8] RUN adduser --system --uid 1001 nextjs                                     0.0s
+ => CACHED [learning-frontend deps 4/5] COPY package.json package-lock.json* ./                                      0.0s
+ => CACHED [learning-frontend deps 5/5] RUN npm ci                                                                   0.0s
+ => CACHED [learning-frontend builder 3/5] COPY --from=deps /app/node_modules ./node_modules                         0.0s
+ => CACHED [learning-frontend builder 4/5] COPY . .                                                                  0.0s
+ => CACHED [learning-frontend builder 5/5] RUN npm run build                                                         0.0s
+ => CACHED [learning-frontend runner 6/8] COPY --from=builder /app/public ./public                                   0.0s
+ => CACHED [learning-frontend runner 7/8] COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./         0.0s
+ => CACHED [learning-frontend runner 8/8] COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/stati  0.0s
+ => [learning-frontend] exporting to image                                                                           0.8s
+ => => exporting layers                                                                                              0.0s
+ => => exporting manifest sha256:9273f5949b6f0288006277332fe9d803e506259b83bc7e497aaa39aa7f1c2ebb                    0.1s
+ => => exporting config sha256:f1382fc2be6710a715d5d286316e512424db5bbb5343838e0b898216c1362898                      0.0s
+ => => exporting attestation manifest sha256:3f80e5bc06792626ab4e8784ccebd977509c7d09f65bd56f1d44e191134556f1        0.2s
+ => => exporting manifest list sha256:80c2e5f9a22d8158e089a88d0704b79972ec5ede61c0a61898241830322642e6               0.1s
+ => => naming to docker.io/library/learning-platform-learning-frontend:latest                                        0.1s
+ => => unpacking to docker.io/library/learning-platform-learning-frontend:latest                                     0.1s
+ => [nginx-gateway] resolving provenance for metadata file                                                           0.5s
+ => [user-service] resolving provenance for metadata file                                                            0.5s
+ => [course-service] resolving provenance for metadata file                                                          0.4s
+ => [ai-tutor-service] resolving provenance for metadata file                                                        0.2s
+ => [analytics-service] resolving provenance for metadata file                                                       0.1s
+ => [learning-frontend] resolving provenance for metadata file                                                       0.0s
+[+] Running 17/17
+ ✔ learning-platform-course-service     Built                                                                        0.0s 
+ ✔ learning-platform-learning-frontend  Built                                                                        0.0s 
+ ✔ learning-platform-user-service       Built                                                                        0.0s 
+ ✔ learning-platform-ai-tutor-service   Built                                                                        0.0s 
+ ✔ learning-platform-analytics-service  Built                                                                        0.0s 
+ ✔ learning-platform-nginx-gateway      Built                                                                        0.0s 
+ ✔ Container minio                      Recreated                                                                    2.3s 
+ ✔ Container learning-frontend          Recreated                                                                    1.4s 
+ ✔ Container mongodb                    Recreated                                                                    3.1s 
+ ✔ Container redis                      Recreated                                                                    4.1s 
+ ✔ Container postgres                   Recreated                                                                    4.6s 
+ ✔ Container user-service               Recreated                                                                    1.5s 
+ ✔ Container analytics-service          Recreated                                                                    3.2s 
+ ✔ Container ai-tutor-service           Recreated                                                                    4.2s 
+ ✔ Container n8n-automation             Recreated                                                                    7.8s 
+ ✔ Container course-service             Recreated                                                                    3.7s 
+ ✔ Container nginx-gateway              Recreated                                                                    1.9s 
+Attaching to ai-tutor-service, analytics-service, course-service, learning-frontend, minio, mongodb, n8n-automation, nginx-gateway, postgres, redis, user-service
+postgres  | 
+postgres  | PostgreSQL Database directory appears to contain a database; Skipping initialization
+postgres  | 
+postgres  | 2026-05-18 18:30:09.678 UTC [1] LOG:  starting PostgreSQL 16.13 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit
+postgres  | 2026-05-18 18:30:09.699 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+postgres  | 2026-05-18 18:30:09.740 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+postgres  | 2026-05-18 18:30:09.775 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres  | 2026-05-18 18:30:09.798 UTC [27] LOG:  database system was shut down at 2026-05-18 18:29:56 UTC
+postgres  | 2026-05-18 18:30:09.836 UTC [1] LOG:  database system is ready to accept connections
+learning-frontend  |   ▲ Next.js 14.2.35
+learning-frontend  |   - Local:        http://f0830a302553:3000
+learning-frontend  |   - Network:      http://172.26.0.2:3000
+learning-frontend  | 
+learning-frontend  |  ✓ Starting...
+redis              | 1:C 18 May 2026 18:30:10.374 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+redis              | 1:C 18 May 2026 18:30:10.374 * Redis version=7.2.14, bits=64, commit=00000000, modified=0, pid=1, just started
+
+
+learning-frontend  |  ✓ Ready in 295ms
+
+
+redis              | 1:C 18 May 2026 18:30:10.374 * Configuration loaded
+redis              | 1:M 18 May 2026 18:30:10.375 * monotonic clock: POSIX clock_gettime
+redis              | 1:M 18 May 2026 18:30:10.376 * Running mode=standalone, port=6379.
+redis              | 1:M 18 May 2026 18:30:10.387 * Server initialized
+redis              | 1:M 18 May 2026 18:30:10.388 * Reading RDB base file on AOF loading...
+redis              | 1:M 18 May 2026 18:30:10.388 * Loading RDB produced by version 7.2.14
+redis              | 1:M 18 May 2026 18:30:10.388 * RDB age 4095 seconds
+redis              | 1:M 18 May 2026 18:30:10.388 * RDB memory usage when created 0.83 Mb
+redis              | 1:M 18 May 2026 18:30:10.388 * RDB is base AOF
+redis              | 1:M 18 May 2026 18:30:10.388 * Done loading RDB, keys loaded: 0, keys expired: 0.
+redis              | 1:M 18 May 2026 18:30:10.388 * DB loaded from base file appendonly.aof.1.base.rdb: 0.000 seconds
+redis              | 1:M 18 May 2026 18:30:10.388 * DB loaded from append only file: 0.000 seconds
+redis              | 1:M 18 May 2026 18:30:10.388 * Opening AOF incr file appendonly.aof.1.incr.aof on server start
+redis              | 1:M 18 May 2026 18:30:10.388 * Ready to accept connections tcp
+minio              | MinIO Object Storage Server
+minio              | Copyright: 2015-2026 MinIO, Inc.
+minio              | License: GNU AGPLv3 - https://www.gnu.org/licenses/agpl-3.0.html
+minio              | Version: RELEASE.2025-09-07T16-13-09Z (go1.24.6 linux/amd64)
+minio              | 
+minio              | API: http://172.26.0.4:9000  http://127.0.0.1:9000 
+minio              | WebUI: http://172.26.0.4:9001 http://127.0.0.1:9001  
+minio              | 
+minio              | Docs: https://docs.min.io
+postgres           | 2026-05-18 18:30:14.631 UTC [37] FATAL:  database "learning_platform" does not exist
+postgres           | 2026-05-18 18:30:24.750 UTC [44] FATAL:  database "learning_platform" does not exist
+n8n-automation     | Last session crashed
+Error response from daemon: failed to set up container networking: driver failed programming external connectivity on endpoint mongodb (ff4372d436dc0b2dc6efd6cf275578af5accd6566d6bdd6f828da392a3d30344): Bind for 0.0.0.0:27017 failed: port is already allocatedr Desktop   o View Config   w Enable Watch
+PS C:\Users\arijb\Desktop\e_learning_plateforme\learning-platform> 

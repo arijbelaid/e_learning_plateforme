@@ -47,8 +47,6 @@ services:
       dockerfile: Dockerfile
     container_name: learning-frontend
     environment:
-      - NEXT_PUBLIC_API_URL=http://localhost/api
-      - NEXT_PUBLIC_APP_NAME=LearnCloud Platform
       - NODE_ENV=production
     ports:
       - "3000:3000"
@@ -128,13 +126,13 @@ services:
         condition: service_healthy
     networks:
       - learning-network
-    restart: unless-stopped
+    restart: on-failure
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:3001/health"]
       interval: 30s
       timeout: 10s
-      retries: 3
-      start_period: 25s
+      retries: 5
+      start_period: 30s
 
   # ============================================================
   # ANALYTICS SERVICE - FastAPI
@@ -274,6 +272,8 @@ services:
 
   # ============================================================
   # MONGODB
+  # NOTE: Port externe changé de 27017 → 27018 pour éviter le conflit
+  #       avec MongoDB local installé sur Windows
   # ============================================================
   mongodb:
     image: mongo:7.0
@@ -283,7 +283,7 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=admin_secure_password
       - MONGO_INITDB_DATABASE=users_db
     ports:
-      - "27017:27017"
+      - "27018:27017"
     volumes:
       - mongodb_data:/data/db
       - ./mongodb/init.js:/docker-entrypoint-initdb.d/init.js
