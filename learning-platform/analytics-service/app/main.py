@@ -2,12 +2,13 @@ from fastapi import FastAPI, Depends, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker, DeclarativeBase
-from sqlalchemy import Column, Integer, String, Float, DateTime, JSON, select, func, text
+from sqlalchemy import Column, Integer, String, Float, DateTime, JSON, select, func
 from sqlalchemy.sql import func as sqlfunc
 from pydantic import BaseModel
 from typing import Optional, List, Dict, Any
 from datetime import datetime, timedelta
 import os
+import asyncio
 import logging
 
 logging.basicConfig(level=logging.INFO)
@@ -56,9 +57,21 @@ engine = create_async_engine(DATABASE_URL, echo=False, pool_pre_ping=True)
 AsyncSessionLocal = sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
 
 
-async def init_db():
-    async with engine.begin() as conn:
-        await conn.run_sync(Base.metadata.create_all)
+async def init_db(max_retries: int = 15, retry_delay: float = 5.0):
+    """Initialise la DB avec retry automatique."""
+    for attempt in range(1, max_retries + 1):
+        try:
+            logger.info(f"[DB] Connection attempt {attempt}/{max_retries}...")
+            async with engine.begin() as conn:
+                await conn.run_sync(Base.metadata.create_all)
+            logger.info("[DB] Connected and tables created.")
+            return
+        except Exception as e:
+            logger.error(f"[DB] Failed (attempt {attempt}): {e}")
+            if attempt >= max_retries:
+                logger.critical("[DB] Max retries reached. Starting degraded.")
+                return
+            await asyncio.sleep(retry_delay)
 
 
 async def get_db():
@@ -67,6 +80,7 @@ async def get_db():
             yield session
         finally:
             await session.close()
+
 
 # ============================================================
 # App
@@ -245,12 +259,14 @@ async def get_course_analytics(course_id: int, db: AsyncSession = Depends(get_db
     completions = await db.execute(
         select(func.count()).where(AnalyticsEvent.event_type == "completion", AnalyticsEvent.course_id == course_id)
     )
+    enroll_count = enrollments.scalar() or 0
+    complete_count = completions.scalar() or 0
     return {
         "course_id": course_id,
         "views": views.scalar() or 0,
-        "enrollments": enrollments.scalar() or 0,
-        "completions": completions.scalar() or 0,
-        "completion_rate": round((completions.scalar() or 0) / max(enrollments.scalar() or 1, 1) * 100, 2),
+        "enrollments": enroll_count,
+        "completions": complete_count,
+        "completion_rate": round(complete_count / max(enroll_count, 1) * 100, 2),
     }
 
 

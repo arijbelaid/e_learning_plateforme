@@ -1,0 +1,452 @@
+ docker compose up --build             
+[+] Building 13.5s (69/69) FINISHED                                                
+ => [internal] load local bake definitions                                    0.1s
+ => => reading from stdin 3.63kB                                              0.1s
+ => [analytics-service internal] load build definition from Dockerfile        0.3s
+ => => transferring dockerfile: 502B                                          0.0s
+ => [user-service internal] load build definition from Dockerfile             0.3s
+ => => transferring dockerfile: 335B                                          0.1s
+ => [learning-frontend internal] load build definition from Dockerfile        0.3s
+ => => transferring dockerfile: 878B                                          0.0s
+ => [ai-tutor-service internal] load build definition from Dockerfile         0.4s
+ => => transferring dockerfile: 502B                                          0.1s
+ => [nginx-gateway internal] load build definition from Dockerfile            0.4s
+ => => transferring dockerfile: 305B                                          0.0s
+ => [course-service internal] load build definition from Dockerfile           0.4s
+ => => transferring dockerfile: 502B                                          0.1s
+ => [ai-tutor-service internal] load metadata for docker.io/library/python:3  1.8s
+ => [user-service internal] load metadata for docker.io/library/node:20-alpi  1.5s
+ => [nginx-gateway internal] load metadata for docker.io/library/nginx:1.25-  1.6s
+ => [auth] library/python:pull token for registry-1.docker.io                 0.0s
+ => [auth] library/node:pull token for registry-1.docker.io                   0.0s
+ => [auth] library/nginx:pull token for registry-1.docker.io                  0.0s
+ => [learning-frontend internal] load .dockerignore                           0.2s
+ => => transferring context: 2B                                               0.0s
+ => [user-service internal] load .dockerignore                                0.2s
+ => => transferring context: 2B                                               0.0s
+ => [learning-frontend 1/6] FROM docker.io/library/node:20-alpine@sha256:fb4  0.2s
+ => => resolve docker.io/library/node:20-alpine@sha256:fb4cd12c85ee03686f6af  0.1s
+ => [user-service internal] load build context                                0.1s
+ => => transferring context: 370B                                             0.0s
+ => [learning-frontend internal] load build context                           5.6s
+ => => transferring context: 1.44MB                                           5.1s
+ => [nginx-gateway internal] load .dockerignore                               0.1s
+ => => transferring context: 2B                                               0.0s
+ => [analytics-service internal] load .dockerignore                           0.1s
+ => => transferring context: 2B                                               0.0s
+ => [course-service internal] load .dockerignore                              0.1s
+ => => transferring context: 2B                                               0.0s
+ => [ai-tutor-service internal] load .dockerignore                            0.1s
+ => => transferring context: 2B                                               0.0s
+ => [nginx-gateway 1/3] FROM docker.io/library/nginx:1.25-alpine@sha256:5164  0.5s
+ => => resolve docker.io/library/nginx:1.25-alpine@sha256:516475cc129da42866  0.5s
+ => [nginx-gateway internal] load build context                               0.3s
+ => => transferring context: 32B                                              0.1s
+ => CACHED [learning-frontend 2/6] WORKDIR /app                               0.0s
+ => CACHED [learning-frontend 3/6] RUN apk add --no-cache curl                0.0s
+ => CACHED [user-service 4/6] COPY package.json .                             0.0s
+ => CACHED [user-service 5/6] RUN npm install --production                    0.0s
+ => CACHED [user-service 6/6] COPY . .                                        0.1s
+ => [course-service 1/6] FROM docker.io/library/python:3.12-slim@sha256:401f  0.5s
+ => => resolve docker.io/library/python:3.12-slim@sha256:401f6e1a67dad31a1bd  0.5s
+ => [ai-tutor-service internal] load build context                            0.4s
+ => => transferring context: 154B                                             0.2s
+ => [course-service internal] load build context                              0.4s
+ => => transferring context: 402B                                             0.2s
+ => [analytics-service internal] load build context                           0.4s
+ => => transferring context: 154B                                             0.1s
+ => [user-service] exporting to image                                         2.7s
+ => => exporting layers                                                       0.1s
+ => => exporting manifest sha256:55b986baf84342987b06b5ce4724cfa0eef18f85ab0  0.1s
+ => => exporting config sha256:0fb00c509fcf3941e3318e3e8a76a13a03a542c7bdb50  0.0s
+ => => exporting attestation manifest sha256:4265451598d066cfe82558385ab277b  0.3s
+ => => exporting manifest list sha256:ea8b38aba52500bad30e4d1656f83a18343798  0.3s
+ => => naming to docker.io/library/learning-platform-user-service:latest      1.0s
+ => => unpacking to docker.io/library/learning-platform-user-service:latest   0.3s
+ => CACHED [nginx-gateway 2/3] RUN apk add --no-cache curl                    0.0s
+ => CACHED [nginx-gateway 3/3] COPY nginx.conf /etc/nginx/nginx.conf          0.0s
+ => [nginx-gateway] exporting to image                                        4.5s
+ => => exporting layers                                                       0.1s
+ => => exporting manifest sha256:bfbd0e35578f13261e7835e7e95b7a6d54b41e335d9  0.1s
+ => => exporting config sha256:8c8b410895086d304825e8fe2c8417fb6d43351289407  0.2s
+ => => exporting attestation manifest sha256:cc7fa0262b3f0450cdf96efad608996  0.9s
+ => => exporting manifest list sha256:475ea7f351cf537dd64f7c70155f93522234b2  0.8s
+ => => naming to docker.io/library/learning-platform-nginx-gateway:latest     0.4s
+ => => unpacking to docker.io/library/learning-platform-nginx-gateway:latest  0.3s
+ => CACHED [course-service 2/6] WORKDIR /app                                  0.0s
+ => CACHED [course-service 3/6] RUN apt-get update && apt-get install -y --n  0.0s
+ => CACHED [ai-tutor-service 4/6] COPY requirements.txt .                     0.0s
+ => CACHED [ai-tutor-service 5/6] RUN pip install --no-cache-dir -r requirem  0.0s
+ => CACHED [ai-tutor-service 6/6] COPY . .                                    0.0s
+ => CACHED [analytics-service 4/6] COPY requirements.txt .                    0.0s
+ => CACHED [analytics-service 5/6] RUN pip install --no-cache-dir -r require  0.0s
+ => CACHED [analytics-service 6/6] COPY . .                                   0.0s
+ => CACHED [course-service 4/6] COPY requirements.txt .                       0.0s
+ => CACHED [course-service 5/6] RUN pip install --no-cache-dir -r requiremen  0.0s
+ => CACHED [course-service 6/6] COPY . .                                      0.0s
+ => [course-service] exporting to image                                       4.3s
+ => => exporting layers                                                       0.0s
+ => => exporting manifest sha256:f4fcac7c5016c6305af07c8cea7ebde80c6dedd1f9b  0.1s
+ => => exporting config sha256:52875b561511794d810e10b6e76641bd3bf8c19800f1e  1.0s
+ => => exporting attestation manifest sha256:cb113e9d1d3999574a4b0387395603a  1.2s
+ => => exporting manifest list sha256:c6dfc617401c0ad269f4e735f71a3eced5c16e  0.7s
+ => => naming to docker.io/library/learning-platform-course-service:latest    0.2s
+ => => unpacking to docker.io/library/learning-platform-course-service:lates  0.1s
+ => [analytics-service] exporting to image                                    4.2s
+ => => exporting layers                                                       0.0s
+ => => exporting manifest sha256:99d94343d7be724e8277d918f5dd21b72991596f475  0.1s
+ => => exporting config sha256:5b3eb27308a037e10b8c6ac0635861485c4eb278906e6  1.0s
+ => => exporting attestation manifest sha256:45a7f4ac23082749131ccc52cdfd142  1.3s
+ => => exporting manifest list sha256:c33caaf93a9f9c12da57d32dabe040fdee351e  0.6s
+ => => naming to docker.io/library/learning-platform-analytics-service:lates  0.2s
+ => => unpacking to docker.io/library/learning-platform-analytics-service:la  0.1s
+ => [ai-tutor-service] exporting to image                                     4.3s
+ => => exporting layers                                                       0.0s
+ => => exporting manifest sha256:9ee0605a19b74e66277d52166582c4ab39ec40c46bf  1.0s
+ => => exporting config sha256:197b124090e85ef632b0f41470b63edf34214e77ae594  0.1s
+ => => exporting attestation manifest sha256:0042e11a2f215dd9e5f4a4f880e079d  1.4s
+ => => exporting manifest list sha256:4eea7d26ab55af7b87360e268e1236c99b8e12  0.5s
+ => => naming to docker.io/library/learning-platform-ai-tutor-service:latest  0.1s
+ => => unpacking to docker.io/library/learning-platform-ai-tutor-service:lat  0.1s
+ => [user-service] resolving provenance for metadata file                     0.2s
+ => CACHED [learning-frontend runner 3/8] RUN apk add --no-cache curl         0.0s
+ => CACHED [learning-frontend runner 4/8] RUN addgroup --system --gid 1001 n  0.0s
+ => CACHED [learning-frontend runner 5/8] RUN adduser --system --uid 1001 ne  0.0s
+ => CACHED [learning-frontend deps 4/5] COPY package.json package-lock.json*  0.0s
+ => CACHED [learning-frontend deps 5/5] RUN npm ci                            0.0s
+ => CACHED [learning-frontend builder 3/5] COPY --from=deps /app/node_module  0.0s
+ => CACHED [learning-frontend builder 4/5] COPY . .                           0.0s
+ => CACHED [learning-frontend builder 5/5] RUN npm run build                  0.0s
+ => CACHED [learning-frontend runner 6/8] COPY --from=builder /app/public ./  0.0s
+ => CACHED [learning-frontend runner 7/8] COPY --from=builder --chown=nextjs  0.0s
+ => CACHED [learning-frontend runner 8/8] COPY --from=builder --chown=nextjs  0.0s
+ => [learning-frontend] exporting to image                                    0.8s
+ => => exporting layers                                                       0.1s
+ => => exporting manifest sha256:9273f5949b6f0288006277332fe9d803e506259b83b  0.0s
+ => => exporting config sha256:f1382fc2be6710a715d5d286316e512424db5bbb53438  0.0s
+ => => exporting attestation manifest sha256:5a8dce64c65aee40a0a8985559b53ff  0.1s
+ => => exporting manifest list sha256:03cecfbbae38c2eed223e3610159b8b99c274c  0.1s
+ => => naming to docker.io/library/learning-platform-learning-frontend:lates  0.0s
+ => => unpacking to docker.io/library/learning-platform-learning-frontend:la  0.1s
+ => [nginx-gateway] resolving provenance for metadata file                    0.3s
+ => [analytics-service] resolving provenance for metadata file                0.8s
+ => [course-service] resolving provenance for metadata file                   0.3s
+ => [ai-tutor-service] resolving provenance for metadata file                 0.3s
+ => [learning-frontend] resolving provenance for metadata file                0.1s
+[+] Running 16/16
+ ✔ learning-platform-ai-tutor-service   Built                                 0.0s 
+ ✔ learning-platform-analytics-service  Built                                 0.0s 
+ ✔ learning-platform-course-service     Built                                 0.0s 
+ ✔ learning-platform-learning-frontend  Built                                 0.0s 
+ ✔ learning-platform-user-service       B...                                  0.0s 
+ ✔ learning-platform-nginx-gateway      Built                                 0.0s 
+ ✔ Container postgres                   Running                               0.0s 
+ ✔ Container minio                      Running                               0.0s 
+ ✔ Container n8n-automation             Running                               0.0s 
+ ✔ Container redis                      Running                               0.0s 
+ ✔ Container course-service             Recreat...                            2.6s 
+ ✔ Container analytics-service          Recr...                               2.9s 
+ ✔ Container user-service               Recreated                             1.9s 
+ ✔ Container ai-tutor-service           Recre...                              2.9s 
+ ✔ Container learning-frontend          Recr...                               4.3s 
+ ✔ Container nginx-gateway              Recreate...                           3.4s 
+Attaching to ai-tutor-service, analytics-service, course-service, learning-frontend, minio, mongodb, n8n-automation, nginx-gateway, postgres, redis, user-service
+learning-frontend  |   ▲ Next.js 14.2.35
+learning-frontend  |   - Local:        http://0a14ace9518c:3000
+learning-frontend  |   - Network:      http://172.26.0.2:3000
+learning-frontend  | 
+learning-frontend  |  ✓ Starting...
+learning-frontend  |  ✓ Ready in 299ms
+n8n-automation     | Last session crashed
+postgres           | 2026-05-18 20:11:28.360 UTC [4274] FATAL:  database "learning_platform" does not exist
+ai-tutor-service   | INFO:     Will watch for changes in these directories: ['/app']
+ai-tutor-service   | INFO:     Uvicorn running on http://0.0.0.0:8003 (Press CTRL+C to quit)
+ai-tutor-service   | INFO:     Started reloader process [1] using WatchFiles
+analytics-service  | INFO:     Will watch for changes in these directories: ['/app']
+analytics-service  | INFO:     Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+analytics-service  | INFO:     Started reloader process [1] using WatchFiles
+course-service     | INFO:     Will watch for changes in these directories: ['/app']
+course-service     | INFO:     Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
+course-service     | INFO:     Started reloader process [1] using WatchFiles
+ai-tutor-service   | INFO:     Started server process [8]
+ai-tutor-service   | INFO:     Waiting for application startup.
+ai-tutor-service   | INFO:     Application startup complete.
+analytics-service  | INFO:     Started server process [8]
+analytics-service  | INFO:     Waiting for application startup.
+postgres           | 2026-05-18 20:11:32.445 UTC [4275] FATAL:  password authentication failed for user "admin"
+postgres           | 2026-05-18 20:11:32.445 UTC [4275] DETAIL:  Connection matched file "/var/lib/postgresql/data/pg_hba.conf" line 128: "host all all all scram-sha-256"
+analytics-service  | ERROR:    Traceback (most recent call last):
+analytics-service  |   File "/usr/local/lib/python3.12/site-packages/starlette/routing.py", line 693, in lifespan
+analytics-service  |     async with self.lifespan_context(app) as maybe_state:
+analytics-service  |                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+analytics-service  |   File "/usr/local/lib/python3.12/site-packages/starlette/routing.py", line 569, in __aenter__
+analytics-service  |     await self._router.startup()
+analytics-service  |   File "/usr/local/lib/python3.12/site-packages/starlette/routing.py", line 670, in startup
+analytics-service  |     await handler()
+analytics-service  |   File "/app/app/main.py", line 91, in startup
+analytics-service  |     await init_db()
+analytics-service  |   File "/app/app/main.py", line 60, in init_db
+analytics-service  |     async with engine.begin() as conn:
+analytics-service  |                ^^^^^^^^^^^^^^
+analytics-service  |   File "/usr/local/lib/python3.12/contextlib.py", line 210, in __aenter__
+analytics-service  |     return await anext(self.gen)
+analytics-service  |            ^^^^^^^^^^^^^^^^^^^^^
+analytics-service  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/ext/asyncio/engine.py", line 1063, in begin
+analytics-service  |     async with conn:
+analytics-service  |                ^^^^
+analytics-service  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/ext/asyncio/base.py", line 121, in __aenter__
+analytics-service  |     return await self.start(is_ctxmanager=True)
+analytics-service  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+analytics-service  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/ext/asyncio/engine.py", line 273, in start
+analytics-service  |     await greenlet_spawn(self.sync_engine.connect)
+analytics-service  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 201, in greenlet_spawn
+analytics-service  |     result = context.throw(*sys.exc_info())
+analytics-service  |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+analytics-service  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3278, in connect
+analytics-service  |     return self._connection_cls(self)
+analytics-service  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+analytics-service  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 146, in __init__
+analytics-service  |     self._dbapi_connection = engine.raw_connection()
+analytics-service  |                              ^^^^^^^^^^^^^^^^^^^^^^^
+analytics-service  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3302, in raw_connection
+course-service     | INFO:     Started server process [9]
+
+
+analytics-service  |     return self.pool.connect()
+course-service     | INFO:     Waiting for application startup.
+
+
+analytics-service  |            ^^^^^^^^^^^^^^^^^^^
+analytics-service  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 449, in connect
+postgres           | 2026-05-18 20:11:33.499 UTC [4276] FATAL:  password authentication failed for user "admin"
+
+
+postgres           | 2026-05-18 20:11:33.499 UTC [4276] DETAIL:  Connection matched file "/var/lib/postgresql/data/pg_hba.conf" line 128: "host all all all scram-sha-256"
+course-service     | ERROR:    Traceback (most recent call last):
+analytics-service  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+analytics-service  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 1263, in _checkout
+course-service     |     async with self.lifespan_context(app) as maybe_state:
+course-service     |                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+analytics-service  |     fairy = _ConnectionRecord.checkout(pool)
+analytics-service  |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+course-service     |   File "/usr/local/lib/python3.12/site-packages/starlette/routing.py", line 569, in __aenter__
+
+
+analytics-service  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 712, in checkout
+course-service     |     await self._router.startup()
+analytics-service  |     rec = pool._do_get()
+ai-tutor-service   | INFO:     127.0.0.1:51864 - "GET /health HTTP/1.1" 200 OK
+
+
+course-service     |     await handler()
+analytics-service  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 179, in _do_get
+course-service     |   File "/app/app/main.py", line 40, in startup
+
+analytics-service  |          ^^^^^^^^^^^^^^^^^^^
+course-service     |     await init_db()
+
+
+
+course-service     |   File "/app/app/database.py", line 23, in init_dblalchemy/uti
+course-service     |     async with engine.begin() as conn:
+analytics-service  |     raise exc_value.with_traceback(exc_tb)
+
+
+analytics-service  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 177, in _do_get
+
+
+analytics-service  |     return self._create_connection()
+course-service     |   File "/usr/local/lib/python3.12/contextlib.py", line 210, in __aenter__
+course-service     |     return await anext(self.gen)
+
+
+
+
+
+course-service     |            ^^^^^^^^^^^^^^^^^^^^^
+
+
+course-service     |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/ext/asyncio/engine.py", line 1063, in beginion
+
+analytics-service  |            ^^^^^^^^^^^^^^^^^^^^^^^
+course-service     |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/ext
+
+
+analytics-service  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 674, in __init__
+
+
+course-service     |     return await self.start(is_ctxmanager=True)
+
+analytics-service  |     self.__connect()
+
+
+
+
+course-service     |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+analytics-service  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 900, in __connect
+
+
+analytics-service  |     with util.safe_reraise():
+course-service     |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/ext
+
+
+
+analytics-service  |          ^^^^^^^^^^^^^^^^^^^
+course-service     |     await greenlet_spawn(self.sync_engine.connect)
+analytics-service  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+
+
+
+
+course-service     |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/uti
+
+
+course-service     |     result = context.throw(*sys.exc_info())
+analytics-service  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 896, in __connect
+
+
+course-service     |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+analytics-service  |     self.dbapi_connection = connection = pool._invoke_creator(
+
+course-service     |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3278, in connect
+analytics-service  |                                          ^^^^^^^^^^^^^^^^^^^^^
+
+course-service     |     return self._connection_cls(self)
+course-service     |            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+analytics-service  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 643, in connect
+
+
+course-service     |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 146, in __init__
+
+
+analytics-service  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ction()
+analytics-service  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 621, in connect
+course-service     |                              ^^^^^^^^^^^^^^^^^^^^^^^
+
+
+analytics-service  |     return self.loaded_dbapi.connect(*cargs, **cparams)
+course-service     |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3302, in raw_connection
+
+
+course-service     |     return self.pool.connect()
+
+analytics-service  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/dia
+course-service     |            ^^^^^^^^^^^^^^^^^^^
+
+course-service     |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 449, in connect
+analytics-service  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+course-service     |     return _ConnectionFairy._checkout(self)
+course-service     |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+analytics-service  |     return current.parent.switch(awaitable)  # type: ignore[no-any-return,attr-defined] # noqa: E501
+analytics-service  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ages/sqlalchemy/poo
+
+
+
+course-service     |     fairy = _ConnectionRecord.checkout(pool)
+analytics-service  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 196, in greenlet_spawn
+
+
+course-service     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+analytics-service  |     value = await result
+course-service     |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 712, in checkout
+analytics-service  |             ^^^^^^^^^^^^
+
+
+
+
+
+course-service     |           ^^^^^^^^^^^^^^
+
+
+analytics-service  |     return await connect_utils._connect(
+course-service     |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 179, in _do_get
+analytics-service  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+course-service     |          ^^^^^^^^^^^^^^^^^^^n3.12/site-packages/asyncpg/connec
+analytics-service  |     conn = await _connect_addr(
+course-service     |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+course-service     |     raise exc_value.with_traceback(exc_tb)
+analytics-service  |   File "/usr/local/lib/python3.12/site-packages/asyncpg/connect_utils.py", line 828, in _connect_addr
+
+analytics-service  |     return await __connect_addr(params, True, *args)
+
+
+
+course-service     |     return self._create_connection()
+analytics-service  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+course-service     |            ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+
+analytics-service  |   File "/usr/local/lib/python3.12/site-packages/asyncpg/connect_utils.py", line 876, in __connect_addr
+course-service     |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 390, in _create_connection
+
+
+course-service     |     return _ConnectionRecord(self)
+
+
+
+
+analytics-service  | 
+analytics-service  | ERROR:    Application startup failed. Exiting.
+
+course-service     |     self.__connect()
+course-service     |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 900, in __connect
+course-service     |     with util.safe_reraise():
+course-service     |          ^^^^^^^^^^^^^^^^^^^
+course-service     |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+course-service     |     raise exc_value.with_traceback(exc_tb)
+course-service     |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 896, in __connect
+course-service     |     self.dbapi_connection = connection = pool._invoke_creator(self)
+course-service     |                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+course-service     |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 643, in connect
+course-service     |     return dialect.connect(*cargs, **cparams)
+course-service     |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+course-service     |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 621, in connect
+n8n-automation     | Initializing n8n process
+
+course-service     |     return self.loaded_dbapi.connect(*cargs, **cparams)
+course-service     |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+course-service     |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 953, in connect
+course-service     |     await_only(creator_fn(*arg, **kw)),
+course-service     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+course-service     |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 132, in await_only
+course-service     |     return current.parent.switch(awaitable)  # type: ignore[no-any-return,attr-defined] # noqa: E501
+course-service     |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+course-service     |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 196, in greenlet_spawn
+course-service     |     value = await result
+course-service     |             ^^^^^^^^^^^^
+course-service     |   File "/usr/local/lib/python3.12/site-packages/asyncpg/connection.py", line 2329, in connect
+course-service     |     return await connect_utils._connect(
+course-service     |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+course-service     |   File "/usr/local/lib/python3.12/site-packages/asyncpg/connect_utils.py", line 991, in _connect
+course-service     |     conn = await _connect_addr(
+course-service     |            ^^^^^^^^^^^^^^^^^^^^
+course-service     |   File "/usr/local/lib/python3.12/site-packages/asyncpg/connect_utils.py", line 828, in _connect_addr
+course-service     |     return await __connect_addr(params, True, *args)
+course-service     |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+course-service     |   File "/usr/local/lib/python3.12/site-packages/asyncpg/connect_utils.py", line 876, in __connect_addr
+course-service     |     await connected
+course-service     | asyncpg.exceptions.InvalidPasswordError: password authentication failed for user "admin"
+course-service     | 
+course-service     | ERROR:    Application startup failed. Exiting.
+
+
+n8n-automation     | There was an error initializing DB FATAL:  password authentica
+tion failed for user "admin"
+
+
+postgres           | 2026-05-18 20:11:37.903 UTC [4277] DETAIL:  Connection matched file "/var/lib/postgresql/data/pg_hba.conf" line 128: "host all all all scram-sha-256"
+postgres           | 2026-05-18 20:11:39.054 UTC [4285] FATAL:  database "learning_platform" does not exist
+postgres           | 2026-05-18 20:11:49.186 UTC [4294] FATAL:  database "learning_platform" does not exist
+postgres           | 2026-05-18 20:11:58.588 UTC [4295] FATAL:  password authentication failed for user "admin"
+postgres           | 2026-05-18 20:11:58.588 UTC [4295] DETAIL:  Connection matched file "/var/lib/postgresql/data/pg_hba.conf" line 128: "host all all all scram-sha-256"
+postgres           | 2026-05-18 20:11:59.279 UTC [4302] FATAL:  database "learning_platform" does not exist
+Error response from daemon: failed to set up container networking: driver failed programming external connectivity on endpoint mongodb (1e61810b7c1cbd8c073586e6c39edbd31b42d90d1ebb8373ed9bf8363e4b6721): Bind for 0.0.0.0:27017 failed: port is already allocated
+PS C:\Users\arijb\Desktop\e_learning_plateforme\learning-platform> 
