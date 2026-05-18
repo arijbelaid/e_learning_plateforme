@@ -27,66 +27,46 @@ Plateforme d'apprentissage en ligne basée sur une architecture microservices, i
 ┌────────────▼──┐ ┌──────▼───┐ ┌────▼───────────────▼───┐
 │  PostgreSQL   │ │ MongoDB  │ │         Redis           │
 │  :5432        │ │ :27017   │ │         :6379           │
-│ courses,      │ │ users,   │ │ cache, sessions,        │
-│ analytics     │ │ profiles │ │ rate limiting           │
 └───────────────┘ └──────────┘ └────────────────────────┘
-                                ┌────────────────────────┐
-                                │  MinIO Object Storage  │
-                                │  :9000 (API)           │
-                                │  :9001 (Console)       │
-                                └────────────────────────┘
-                                ┌────────────────────────┐
-                                │   n8n Automation       │
-                                │   :5678                │
-                                │  Feedback Workflow     │
-                                └────────────────────────┘
+┌───────────────────────────────────────────────────────┐
+│  MinIO :9000/:9001   │   n8n Automation :5678         │
+└───────────────────────────────────────────────────────┘
 ```
 
 ---
 
 ## Prérequis
 
-- **Docker Desktop** (Windows) — [Télécharger](https://www.docker.com/products/docker-desktop/)
-- **Git** — [Télécharger](https://git-scm.com/)
+- **Docker Desktop** pour Windows — [Télécharger](https://www.docker.com/products/docker-desktop/)
 - RAM minimum : **8 Go** recommandé
 - Ports disponibles : 80, 3000, 3001, 5432, 5678, 6379, 8001, 8002, 8003, 9000, 9001, 27017
 
 ---
 
-## Installation & Démarrage
-
-### 1. Cloner le projet
+## ⚡ Premier démarrage (installation propre)
 
 ```bash
-git clone <url-du-repo>
 cd learning-platform
-```
-
-### 2. Configuration des variables d'environnement
-
-```bash
-# Copier le fichier .env (déjà fourni avec des valeurs par défaut)
-# Modifier si nécessaire pour la production
-```
-
-### 3. Démarrer tous les services
-
-```bash
 docker compose up --build
 ```
 
-Pour démarrer en arrière-plan :
+Attendre ~2 minutes que tous les services démarrent. Accéder ensuite à **http://localhost**.
+
+---
+
+## 🔄 Si vous avez déjà lancé et eu des erreurs
+
+Si PostgreSQL a crashé lors d'une tentative précédente, ses volumes sont corrompus. Il faut les supprimer avant de relancer :
+
 ```bash
-docker compose up --build -d
+# Stopper tout et supprimer les volumes (RESET COMPLET)
+docker compose down -v
+
+# Relancer proprement
+docker compose up --build
 ```
 
-### 4. Vérifier que tout fonctionne
-
-```bash
-docker compose ps
-```
-
-Tous les services doivent être dans l'état `healthy`.
+> ⚠️ `docker compose down -v` supprime les données. Ne l'utilisez qu'en cas de problème au premier démarrage.
 
 ---
 
@@ -98,8 +78,8 @@ Tous les services doivent être dans l'état `healthy`.
 | **Catalogue cours** | http://localhost/courses         | Parcourir les cours                |
 | **AI Tutor**        | http://localhost/ai-tutor        | Assistant IA                       |
 | **Tableau de bord** | http://localhost/dashboard       | Dashboard apprenant                |
-| **n8n Automation**  | http://localhost:5678            | Interface n8n (admin/admin)        |
-| **MinIO Console**   | http://localhost:9001            | Stockage objets (minioadmin)       |
+| **n8n Automation**  | http://localhost:5678            | Interface n8n                      |
+| **MinIO Console**   | http://localhost:9001            | Stockage objets                    |
 | **Course API Docs** | http://localhost:8001/docs       | Swagger UI Course Service          |
 | **Analytics Docs**  | http://localhost:8002/docs       | Swagger UI Analytics Service       |
 | **AI Tutor Docs**   | http://localhost:8003/docs       | Swagger UI AI Tutor Service        |
@@ -124,30 +104,21 @@ Tous les services doivent être dans l'état `healthy`.
 ```bash
 curl -X POST http://localhost/api/auth/register \
   -H "Content-Type: application/json" \
-  -d '{
-    "email": "nouveau@test.fr",
-    "password": "MonMotDePasse123",
-    "firstName": "Marie",
-    "lastName": "Curie",
-    "role": "student"
-  }'
+  -d "{\"email\": \"nouveau@test.fr\", \"password\": \"MonMotDePasse123\", \"firstName\": \"Marie\", \"lastName\": \"Curie\", \"role\": \"student\"}"
 ```
 
 #### Connexion
 ```bash
 curl -X POST http://localhost/api/auth/login \
   -H "Content-Type: application/json" \
-  -d '{"email": "student@learncloud.fr", "password": "Admin@1234"}'
+  -d "{\"email\": \"student@learncloud.fr\", \"password\": \"Admin@1234\"}"
 ```
 
 #### Profil utilisateur (authentifié)
 ```bash
-# Remplacez TOKEN par le token JWT obtenu à la connexion
-curl http://localhost/api/auth/me \
-  -H "Authorization: Bearer TOKEN"
+# Remplacer TOKEN par le JWT obtenu à la connexion
+curl http://localhost/api/auth/me -H "Authorization: Bearer TOKEN"
 ```
-
----
 
 ### Course Service (FastAPI — :8001)
 
@@ -161,45 +132,10 @@ curl http://localhost/api/courses
 curl "http://localhost/api/courses?search=docker&category=DevOps&level=beginner"
 ```
 
-#### Détails d'un cours
-```bash
-curl http://localhost/api/courses/1
-```
-
-#### Lister les leçons d'un cours
-```bash
-curl http://localhost/api/courses/1/lessons
-```
-
-#### Créer un cours (instructor/admin)
-```bash
-curl -X POST http://localhost/api/courses \
-  -H "Authorization: Bearer TOKEN" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "title": "Ansible - Automatisation Infrastructure",
-    "description": "Apprenez Ansible pour automatiser vos déploiements",
-    "category": "DevOps",
-    "level": "intermediate",
-    "is_free": true,
-    "language": "fr",
-    "tags": ["ansible", "automation", "devops"]
-  }'
-```
-
 #### S'inscrire à un cours
 ```bash
-curl -X POST http://localhost/api/courses/1/enroll \
-  -H "Authorization: Bearer TOKEN"
+curl -X POST http://localhost/api/courses/1/enroll -H "Authorization: Bearer TOKEN"
 ```
-
-#### Mes inscriptions
-```bash
-curl http://localhost/api/enrollments/me \
-  -H "Authorization: Bearer TOKEN"
-```
-
----
 
 ### Analytics Service (FastAPI — :8002)
 
@@ -212,81 +148,32 @@ curl http://localhost/api/analytics/dashboard
 ```bash
 curl -X POST http://localhost/api/analytics/events \
   -H "Content-Type: application/json" \
-  -d '{
-    "event_type": "course_view",
-    "user_id": "user-123",
-    "course_id": 1,
-    "data": {"source": "homepage", "device": "desktop"}
-  }'
+  -d "{\"event_type\": \"course_view\", \"user_id\": \"user-123\", \"course_id\": 1}"
 ```
-
-#### Analytics d'un cours spécifique
-```bash
-curl http://localhost/api/analytics/courses/1
-```
-
-#### Tendances sur 30 jours
-```bash
-curl "http://localhost/api/analytics/trends?days=30"
-```
-
----
 
 ### AI Tutor Service (FastAPI — :8003)
 
-#### Poser une question au tuteur IA
+#### Poser une question
 ```bash
 curl -X POST http://localhost/api/ai-tutor/ask \
   -H "Content-Type: application/json" \
-  -d '{
-    "question": "Comment fonctionne Docker Compose ?",
-    "course_id": 1
-  }'
-```
-
-#### Obtenir des recommandations
-```bash
-curl -X POST http://localhost/api/ai-tutor/recommend \
-  -H "Content-Type: application/json" \
-  -d '{
-    "user_id": "user-123",
-    "enrolled_courses": [1, 3],
-    "interests": ["devops", "kubernetes"]
-  }'
+  -d "{\"question\": \"Comment fonctionne Docker Compose ?\", \"course_id\": 1}"
 ```
 
 #### Générer un quiz
 ```bash
 curl -X POST http://localhost/api/ai-tutor/quiz \
   -H "Content-Type: application/json" \
-  -d '{
-    "course_id": 1,
-    "num_questions": 5,
-    "difficulty": "medium"
-  }'
+  -d "{\"course_id\": 1, \"num_questions\": 5, \"difficulty\": \"medium\"}"
 ```
 
-#### Résumer un contenu
-```bash
-curl -X POST http://localhost/api/ai-tutor/summarize \
-  -H "Content-Type: application/json" \
-  -d '{"course_id": 1, "lesson_id": 3}'
-```
+### n8n — Workflow Feedback
 
----
-
-### n8n Automation — Workflow Feedback
-
-#### Déclencher le workflow via webhook
+#### Déclencher le webhook
 ```bash
 curl -X POST http://localhost:5678/webhook/feedback \
   -H "Content-Type: application/json" \
-  -d '{
-    "user_id": "user-123",
-    "course_id": 1,
-    "rating": 5,
-    "feedback": "Excellent cours sur Docker ! La partie sur les volumes était très claire."
-  }'
+  -d "{\"user_id\": \"user-123\", \"course_id\": 1, \"rating\": 5, \"feedback\": \"Excellent cours !\"}"
 ```
 
 ---
@@ -297,36 +184,30 @@ curl -X POST http://localhost:5678/webhook/feedback \
 # Voir l'état de tous les services
 docker compose ps
 
-# Voir les logs d'un service spécifique
+# Logs d'un service spécifique
 docker compose logs course-service --tail=50
-docker compose logs user-service --tail=50
-docker compose logs ai-tutor-service --tail=50
+docker compose logs postgres --tail=50
 
-# Suivre les logs en temps réel
+# Logs en temps réel
 docker compose logs -f
 
-# Redémarrer un service sans rebuildez
+# Redémarrer un service
 docker compose restart course-service
 
-# Arrêter tous les services
+# Arrêter sans supprimer les données
 docker compose down
 
-# Arrêter et supprimer les volumes (reset complet)
+# RESET COMPLET (supprime les volumes)
 docker compose down -v
 
-# Reconstruire un service spécifique
-docker compose build course-service
-docker compose up -d course-service
-
-# Accéder au shell d'un conteneur
-docker compose exec course-service bash
+# Accéder à PostgreSQL
 docker compose exec postgres psql -U admin -d learning_platform
-docker compose exec mongodb mongosh -u admin -p admin_secure_password
-docker compose exec redis redis-cli -a redis_secure_password
 
-# Vérifier les healthchecks
-docker inspect --format='{{.State.Health.Status}}' postgres
-docker inspect --format='{{.State.Health.Status}}' mongodb
+# Accéder à MongoDB
+docker compose exec mongodb mongosh -u admin -p admin_secure_password --authenticationDatabase admin
+
+# Accéder à Redis
+docker compose exec redis redis-cli -a redis_secure_password
 ```
 
 ---
@@ -335,254 +216,110 @@ docker inspect --format='{{.State.Health.Status}}' mongodb
 
 ```
 learning-platform/
-├── docker-compose.yml          # Orchestration de tous les services
-├── .env                        # Variables d'environnement
-├── README.md                   # Ce fichier
-│
-├── nginx-gateway/              # API Gateway
+├── docker-compose.yml          # Orchestration (valeurs hardcodées, fonctionne sans .env)
+├── .env                        # Référence des variables (documentation)
+├── README.md
+├── nginx-gateway/              # API Gateway Nginx
 │   ├── Dockerfile
-│   └── nginx.conf              # Reverse proxy, routing, rate limiting
-│
-├── learning-frontend/          # Frontend Next.js + shadcn/ui
-│   ├── Dockerfile              # Multi-stage build (optimisé)
+│   └── nginx.conf
+├── learning-frontend/          # Frontend Next.js
+│   ├── Dockerfile
 │   ├── package.json
-│   ├── next.config.js
 │   └── src/app/
-│       ├── page.tsx            # Homepage - catalogue
-│       ├── courses/page.tsx    # Catalogue avec filtres
-│       ├── dashboard/page.tsx  # Tableau de bord apprenant
-│       ├── ai-tutor/page.tsx   # Interface AI Tutor (Q&A, Quiz)
+│       ├── page.tsx            # Homepage
+│       ├── courses/page.tsx    # Catalogue
+│       ├── dashboard/page.tsx  # Tableau de bord
+│       ├── ai-tutor/page.tsx   # AI Tutor (Chat, Quiz, Reco)
 │       └── auth/               # Login / Register
-│
-├── course-service/             # Microservice FastAPI (cours, leçons, inscriptions)
+├── course-service/             # FastAPI - Cours, leçons, inscriptions
 │   ├── Dockerfile
 │   ├── requirements.txt
 │   └── app/
-│       ├── main.py             # Routes API
-│       ├── models/             # Modèles SQLAlchemy
-│       ├── schemas.py          # Schémas Pydantic
-│       ├── database.py         # Connexion PostgreSQL
-│       ├── auth.py             # Vérification JWT
-│       └── redis_client.py     # Cache Redis
-│
-├── user-service/               # Microservice Node.js/Express (auth, profils)
+├── user-service/               # Node.js/Express - Auth JWT, profils
 │   ├── Dockerfile
 │   ├── package.json
 │   └── src/
-│       ├── index.js            # Point d'entrée Express
-│       ├── routes/             # Routes auth et users
-│       ├── models/User.js      # Modèle Mongoose
-│       └── middleware/auth.js  # Middleware JWT
-│
-├── analytics-service/          # Microservice FastAPI (statistiques, tendances)
+├── analytics-service/          # FastAPI - Stats, tendances, dashboard
 │   ├── Dockerfile
 │   ├── requirements.txt
-│   └── app/main.py             # Dashboard, events, trends
-│
-├── ai-tutor-service/           # Microservice FastAPI (LLM Mock)
+│   └── app/
+├── ai-tutor-service/           # FastAPI - Q&A, Quiz, Recommandations
 │   ├── Dockerfile
 │   ├── requirements.txt
-│   └── app/main.py             # Q&A, Quiz, Recommandations, Résumé
-│
+│   └── app/
 ├── n8n-automation/             # Workflows n8n
 │   └── workflows/
-│       └── feedback-workflow.json  # Workflow feedback automatisé
-│
+│       └── feedback-workflow.json
 ├── postgres/
 │   └── init.sql                # Schéma + données de test
-│
 ├── mongodb/
 │   └── init.js                 # Collections + utilisateurs de test
-│
 ├── redis/
-│   └── redis.conf              # Configuration Redis sécurisée
-│
-└── minio/                      # Stockage objets (auto-configuré)
+│   └── redis.conf
+└── minio/
 ```
 
 ---
 
 ## Ports exposés
 
-| Conteneur          | Port interne | Port exposé | Description                    |
-|--------------------|-------------|-------------|--------------------------------|
-| nginx-gateway      | 80          | **80**      | Point d'entrée principal       |
-| learning-frontend  | 3000        | 3000        | Application Next.js            |
-| course-service     | 8001        | 8001        | API Course (FastAPI)           |
-| user-service       | 3001        | 3001        | API User (Express)             |
-| analytics-service  | 8002        | 8002        | API Analytics (FastAPI)        |
-| ai-tutor-service   | 8003        | 8003        | API AI Tutor (FastAPI)         |
-| n8n-automation     | 5678        | 5678        | Interface n8n                  |
-| postgres           | 5432        | 5432        | Base de données PostgreSQL     |
-| mongodb            | 27017       | 27017       | Base de données MongoDB        |
-| redis              | 6379        | 6379        | Cache Redis                    |
-| minio              | 9000/9001   | 9000/9001   | Stockage objets                |
+| Conteneur          | Port exposé | Description                    |
+|--------------------|-------------|--------------------------------|
+| nginx-gateway      | **80**      | Point d'entrée principal       |
+| learning-frontend  | 3000        | Application Next.js            |
+| course-service     | 8001        | API Course (FastAPI + Swagger) |
+| user-service       | 3001        | API User (Express)             |
+| analytics-service  | 8002        | API Analytics (FastAPI)        |
+| ai-tutor-service   | 8003        | API AI Tutor (FastAPI)         |
+| n8n-automation     | 5678        | Interface n8n                  |
+| postgres           | 5432        | PostgreSQL                     |
+| mongodb            | 27017       | MongoDB                        |
+| redis              | 6379        | Redis                          |
+| minio              | 9000/9001   | MinIO S3 / Console             |
 
 ---
 
-## Réseau Docker
+## Technologies
 
-Tous les services communiquent via le réseau Docker bridge `learning-network`. Les services s'adressent entre eux par leur nom de conteneur (ex: `course-service`, `postgres`, `redis`).
-
-```yaml
-networks:
-  learning-network:
-    driver: bridge
-    name: learning-network
-```
-
----
-
-## Volumes Docker (Persistance des données)
-
-```yaml
-volumes:
-  postgres_data    # Données PostgreSQL
-  mongodb_data     # Données MongoDB
-  redis_data       # Données Redis
-  minio_data       # Fichiers MinIO
-  n8n_data         # Workflows n8n
-```
-
----
-
-## Healthchecks
-
-Chaque service dispose d'un healthcheck Docker configuré :
-
-```bash
-# Vérifier l'état de santé de tous les services
-docker compose ps
-
-# Output attendu: tous les services en "healthy"
-NAME                STATUS
-nginx-gateway       running (healthy)
-learning-frontend   running (healthy)
-course-service      running (healthy)
-user-service        running (healthy)
-analytics-service   running (healthy)
-ai-tutor-service    running (healthy)
-n8n-automation      running (healthy)
-postgres            running (healthy)
-mongodb             running (healthy)
-redis               running (healthy)
-minio               running (healthy)
-```
-
----
-
-## Diagramme de séquence — Inscription et suivi d'un cours
-
-```
-Apprenant     Frontend     API Gateway    User Service    Course Service    Analytics
-    │              │              │               │               │               │
-    │──register──▶│              │               │               │               │
-    │              │──POST /auth/register──▶│               │               │
-    │              │              │──────────────▶│               │               │
-    │              │              │◀── JWT token ─│               │               │
-    │◀─ token ─────│              │               │               │               │
-    │              │              │               │               │               │
-    │──browse──────▶│              │               │               │               │
-    │              │──GET /courses────────────────────────────────▶│               │
-    │              │◀───────────── courses list ──────────────────│               │
-    │◀─ courses ───│              │               │               │               │
-    │              │              │               │               │               │
-    │──enroll──────▶│              │               │               │               │
-    │              │──POST /courses/1/enroll──────────────────────▶│               │
-    │              │              │               │               │──enrollment──▶│
-    │              │              │               │               │◀── saved ─────│
-    │◀─ enrolled ──│              │               │               │               │
-    │              │              │               │               │               │
-    │──ask AI──────▶│              │               │               │               │
-    │              │──POST /ai-tutor/ask──────────────────────────────────────────▶
-    │              │◀──────────────────────────────────────────── AI response ────│
-    │◀─ answer ────│
-```
-
----
-
-## Modèle C4 — Niveau 2 (Container Diagram)
-
-```
-[Apprenant]──▶[Learning Portal Next.js]──▶[API Gateway Nginx]
-                                                │
-                        ┌───────────────────────┼──────────────────────┐
-                        ▼                       ▼                      ▼
-               [Course Service]          [User Service]      [Analytics Service]
-               [FastAPI + PostgreSQL]    [Node.js + MongoDB] [FastAPI + PostgreSQL]
-                        │
-                        ▼
-               [AI Tutor Service]
-               [FastAPI + LLM Mock]
-                        │
-                        ▼
-               [n8n Automation]──▶[Analytics Service]
-               [Feedback Workflow]
-
-Datastores:
-  PostgreSQL ◀─── Course Service, Analytics Service
-  MongoDB    ◀─── User Service
-  Redis      ◀─── Tous les services (cache)
-  MinIO      ◀─── Course Service (médias)
-```
+| Couche           | Technologie         | Version  |
+|------------------|---------------------|----------|
+| API Gateway      | Nginx               | 1.25     |
+| Frontend         | Next.js + React     | 14 / 18  |
+| Course API       | FastAPI + SQLAlchemy| 0.115    |
+| User API         | Express.js          | 4.x      |
+| Analytics API    | FastAPI             | 0.115    |
+| AI Tutor API     | FastAPI (LLM Mock)  | 0.115    |
+| Automation       | n8n                 | Latest   |
+| DB Relationnelle | PostgreSQL          | 16       |
+| DB Documents     | MongoDB             | 7.0      |
+| Cache            | Redis               | 7.2      |
+| Stockage médias  | MinIO               | Latest   |
+| Conteneurisation | Docker Compose      | v2       |
 
 ---
 
 ## Dépannage
 
-### Les conteneurs ne démarrent pas
+### PostgreSQL refuse de démarrer
 ```bash
-# Vérifier les logs
-docker compose logs --tail=50
-
-# Vérifier que les ports ne sont pas déjà utilisés
-netstat -an | findstr "80 5432 27017 6379"  # Windows
-```
-
-### PostgreSQL ne démarre pas
-```bash
-docker compose logs postgres
-# Souvent dû à une permission sur le volume
-docker compose down -v && docker compose up --build
-```
-
-### Erreur de connexion MongoDB
-```bash
-# Vérifier les credentials dans .env
-docker compose exec mongodb mongosh -u admin -p admin_secure_password --authenticationDatabase admin
-```
-
-### Frontend ne charge pas
-```bash
-# Vérifier que nginx est healthy
-docker compose logs nginx-gateway
-# Attendre que tous les services soient ready (peut prendre 1-2 min au premier démarrage)
-```
-
-### Reconstruire entièrement (reset propre)
-```bash
-docker compose down -v --remove-orphans
+# Reset des volumes et redémarrage propre
+docker compose down -v
 docker compose up --build
 ```
 
----
+### Un service reste "unhealthy"
+```bash
+# Voir les logs du service concerné
+docker compose logs <nom-service> --tail=100
+# Ex: docker compose logs course-service --tail=100
+```
 
-## Technologies utilisées
-
-| Couche         | Technologie         | Version  |
-|----------------|---------------------|----------|
-| API Gateway    | Nginx               | 1.25     |
-| Frontend       | Next.js + React     | 14 / 18  |
-| Course API     | FastAPI + SQLAlchemy| 0.115    |
-| User API       | Express.js          | 4.x      |
-| Analytics API  | FastAPI             | 0.115    |
-| AI Tutor API   | FastAPI (LLM Mock)  | 0.115    |
-| Automation     | n8n                 | Latest   |
-| DB Relationnelle | PostgreSQL        | 16       |
-| DB Documents   | MongoDB             | 7.0      |
-| Cache          | Redis               | 7.2      |
-| Stockage médias| MinIO               | Latest   |
-| Conteneurisation | Docker Compose   | 3.9      |
+### Port déjà utilisé
+```bash
+# Windows - vérifier les ports occupés
+netstat -ano | findstr ":80"
+netstat -ano | findstr ":5432"
+```
 
 ---
 

@@ -1,5 +1,3 @@
-version: '3.9'
-
 networks:
   learning-network:
     driver: bridge
@@ -24,7 +22,6 @@ services:
     container_name: nginx-gateway
     ports:
       - "80:80"
-      - "443:443"
     depends_on:
       - learning-frontend
       - course-service
@@ -39,7 +36,7 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 10s
+      start_period: 15s
 
   # ============================================================
   # FRONTEND - Next.js
@@ -50,9 +47,9 @@ services:
       dockerfile: Dockerfile
     container_name: learning-frontend
     environment:
-      - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
-      - NEXT_PUBLIC_APP_NAME=${NEXT_PUBLIC_APP_NAME}
-      - NODE_ENV=${NODE_ENV}
+      - NEXT_PUBLIC_API_URL=http://localhost/api
+      - NEXT_PUBLIC_APP_NAME=LearnCloud Platform
+      - NODE_ENV=production
     ports:
       - "3000:3000"
     networks:
@@ -63,7 +60,7 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 30s
+      start_period: 40s
 
   # ============================================================
   # COURSE SERVICE - FastAPI
@@ -74,21 +71,21 @@ services:
       dockerfile: Dockerfile
     container_name: course-service
     environment:
-      - POSTGRES_HOST=${POSTGRES_HOST}
-      - POSTGRES_PORT=${POSTGRES_PORT}
-      - POSTGRES_DB=${POSTGRES_DB}
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - REDIS_HOST=${REDIS_HOST}
-      - REDIS_PORT=${REDIS_PORT}
-      - REDIS_PASSWORD=${REDIS_PASSWORD}
-      - JWT_SECRET=${JWT_SECRET}
-      - JWT_ALGORITHM=${JWT_ALGORITHM}
-      - MINIO_ENDPOINT=${MINIO_ENDPOINT}
-      - MINIO_ROOT_USER=${MINIO_ROOT_USER}
-      - MINIO_ROOT_PASSWORD=${MINIO_ROOT_PASSWORD}
-      - MINIO_BUCKET=${MINIO_BUCKET}
-      - ENVIRONMENT=${ENVIRONMENT}
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=learning_platform
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin_secure_password
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=redis_secure_password
+      - JWT_SECRET=super_secret_jwt_key_learncloud_2026
+      - JWT_ALGORITHM=HS256
+      - MINIO_ENDPOINT=minio:9000
+      - MINIO_ROOT_USER=minioadmin
+      - MINIO_ROOT_PASSWORD=minioadmin_secure
+      - MINIO_BUCKET=learning-media
+      - ENVIRONMENT=production
     ports:
       - "8001:8001"
     depends_on:
@@ -104,7 +101,7 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 20s
+      start_period: 25s
 
   # ============================================================
   # USER SERVICE - Node.js + Express
@@ -115,14 +112,13 @@ services:
       dockerfile: Dockerfile
     container_name: user-service
     environment:
-      - MONGO_URI=${MONGO_URI}
-      - REDIS_HOST=${REDIS_HOST}
-      - REDIS_PORT=${REDIS_PORT}
-      - REDIS_PASSWORD=${REDIS_PASSWORD}
-      - JWT_SECRET=${JWT_SECRET}
-      - JWT_ALGORITHM=${JWT_ALGORITHM}
-      - JWT_EXPIRE_MINUTES=${JWT_EXPIRE_MINUTES}
-      - NODE_ENV=${NODE_ENV}
+      - MONGO_URI=mongodb://admin:admin_secure_password@mongodb:27017/users_db?authSource=admin
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=redis_secure_password
+      - JWT_SECRET=super_secret_jwt_key_learncloud_2026
+      - JWT_EXPIRE_MINUTES=1440
+      - NODE_ENV=production
     ports:
       - "3001:3001"
     depends_on:
@@ -138,7 +134,7 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 20s
+      start_period: 25s
 
   # ============================================================
   # ANALYTICS SERVICE - FastAPI
@@ -149,16 +145,16 @@ services:
       dockerfile: Dockerfile
     container_name: analytics-service
     environment:
-      - POSTGRES_HOST=${POSTGRES_HOST}
-      - POSTGRES_PORT=${POSTGRES_PORT}
-      - POSTGRES_DB=${POSTGRES_DB}
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - REDIS_HOST=${REDIS_HOST}
-      - REDIS_PORT=${REDIS_PORT}
-      - REDIS_PASSWORD=${REDIS_PASSWORD}
-      - JWT_SECRET=${JWT_SECRET}
-      - ENVIRONMENT=${ENVIRONMENT}
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=learning_platform
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin_secure_password
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=redis_secure_password
+      - JWT_SECRET=super_secret_jwt_key_learncloud_2026
+      - ENVIRONMENT=production
     ports:
       - "8002:8002"
     depends_on:
@@ -174,7 +170,7 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 20s
+      start_period: 25s
 
   # ============================================================
   # AI TUTOR SERVICE - FastAPI + LLM Mock
@@ -185,16 +181,16 @@ services:
       dockerfile: Dockerfile
     container_name: ai-tutor-service
     environment:
-      - POSTGRES_HOST=${POSTGRES_HOST}
-      - POSTGRES_PORT=${POSTGRES_PORT}
-      - POSTGRES_DB=${POSTGRES_DB}
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - REDIS_HOST=${REDIS_HOST}
-      - REDIS_PORT=${REDIS_PORT}
-      - REDIS_PASSWORD=${REDIS_PASSWORD}
-      - JWT_SECRET=${JWT_SECRET}
-      - ENVIRONMENT=${ENVIRONMENT}
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=learning_platform
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin_secure_password
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=redis_secure_password
+      - JWT_SECRET=super_secret_jwt_key_learncloud_2026
+      - ENVIRONMENT=production
     ports:
       - "8003:8003"
     depends_on:
@@ -210,7 +206,7 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 20s
+      start_period: 25s
 
   # ============================================================
   # n8n AUTOMATION
@@ -219,20 +215,20 @@ services:
     image: n8nio/n8n:latest
     container_name: n8n-automation
     environment:
-      - N8N_BASIC_AUTH_ACTIVE=${N8N_BASIC_AUTH_ACTIVE}
-      - N8N_BASIC_AUTH_USER=${N8N_BASIC_AUTH_USER}
-      - N8N_BASIC_AUTH_PASSWORD=${N8N_BASIC_AUTH_PASSWORD}
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=admin
+      - N8N_BASIC_AUTH_PASSWORD=admin_secure_password
       - N8N_HOST=0.0.0.0
       - N8N_PORT=5678
       - N8N_PROTOCOL=http
       - WEBHOOK_URL=http://localhost:5678/
       - GENERIC_TIMEZONE=Europe/Paris
       - DB_TYPE=postgresdb
-      - DB_POSTGRESDB_HOST=${POSTGRES_HOST}
-      - DB_POSTGRESDB_PORT=${POSTGRES_PORT}
+      - DB_POSTGRESDB_HOST=postgres
+      - DB_POSTGRESDB_PORT=5432
       - DB_POSTGRESDB_DATABASE=n8n_db
-      - DB_POSTGRESDB_USER=${POSTGRES_USER}
-      - DB_POSTGRESDB_PASSWORD=${POSTGRES_PASSWORD}
+      - DB_POSTGRESDB_USER=admin
+      - DB_POSTGRESDB_PASSWORD=admin_secure_password
     ports:
       - "5678:5678"
     volumes:
@@ -249,7 +245,7 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 30s
+      start_period: 40s
 
   # ============================================================
   # POSTGRESQL
@@ -258,9 +254,9 @@ services:
     image: postgres:16-alpine
     container_name: postgres
     environment:
-      - POSTGRES_DB=${POSTGRES_DB}
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=learning_platform
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin_secure_password
     ports:
       - "5432:5432"
     volumes:
@@ -270,11 +266,11 @@ services:
       - learning-network
     restart: unless-stopped
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      test: ["CMD-SHELL", "pg_isready -U admin -d learning_platform"]
       interval: 10s
       timeout: 5s
       retries: 5
-      start_period: 10s
+      start_period: 15s
 
   # ============================================================
   # MONGODB
@@ -283,9 +279,9 @@ services:
     image: mongo:7.0
     container_name: mongodb
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USER}
-      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
-      - MONGO_INITDB_DATABASE=${MONGO_DB}
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin_secure_password
+      - MONGO_INITDB_DATABASE=users_db
     ports:
       - "27017:27017"
     volumes:
@@ -299,7 +295,7 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-      start_period: 15s
+      start_period: 20s
 
   # ============================================================
   # REDIS
@@ -317,7 +313,7 @@ services:
       - learning-network
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "redis-cli", "-a", "${REDIS_PASSWORD}", "ping"]
+      test: ["CMD", "redis-cli", "-a", "redis_secure_password", "ping"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -331,8 +327,8 @@ services:
     container_name: minio
     command: server /data --console-address ":9001"
     environment:
-      - MINIO_ROOT_USER=${MINIO_ROOT_USER}
-      - MINIO_ROOT_PASSWORD=${MINIO_ROOT_PASSWORD}
+      - MINIO_ROOT_USER=minioadmin
+      - MINIO_ROOT_PASSWORD=minioadmin_secure
     ports:
       - "9000:9000"
       - "9001:9001"
@@ -346,4 +342,4 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 10s
+      start_period: 15s

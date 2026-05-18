@@ -1,0 +1,653 @@
+PS C:\Users\arijb\Desktop\e_learning_plateforme\learning-platform> docker compose up --build    
+>> 
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"NEXT_PUBLIC_API_URL\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"NEXT_PUBLIC_APP_NAME\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"NODE_ENV\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"POSTGRES_HOST\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"POSTGRES_PORT\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"POSTGRES_DB\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"POSTGRES_USER\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"POSTGRES_PASSWORD\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"REDIS_HOST\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"REDIS_PORT\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"REDIS_PASSWORD\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"JWT_SECRET\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"JWT_ALGORITHM\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"MINIO_ENDPOINT\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"MINIO_ROOT_USER\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"MINIO_ROOT_PASSWORD\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"MINIO_BUCKET\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"ENVIRONMENT\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"N8N_BASIC_AUTH_ACTIVE\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"N8N_BASIC_AUTH_USER\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"N8N_BASIC_AUTH_PASSWORD\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"POSTGRES_HOST\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"POSTGRES_PORT\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"POSTGRES_USER\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"POSTGRES_PASSWORD\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"POSTGRES_DB\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"POSTGRES_USER\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"POSTGRES_PASSWORD\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"POSTGRES_USER\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"POSTGRES_DB\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"MONGO_USER\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"MONGO_PASSWORD\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"MONGO_DB\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"REDIS_PASSWORD\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"MONGO_URI\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"REDIS_HOST\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"REDIS_PORT\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"REDIS_PASSWORD\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"JWT_SECRET\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"JWT_ALGORITHM\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"JWT_EXPIRE_MINUTES\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"NODE_ENV\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"POSTGRES_HOST\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"POSTGRES_PORT\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"POSTGRES_DB\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"POSTGRES_USER\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"POSTGRES_PASSWORD\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"REDIS_HOST\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"REDIS_PORT\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"REDIS_PASSWORD\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"JWT_SECRET\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"ENVIRONMENT\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"POSTGRES_HOST\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"POSTGRES_PORT\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"POSTGRES_DB\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"POSTGRES_USER\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"POSTGRES_PASSWORD\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"REDIS_HOST\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"REDIS_PORT\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"REDIS_PASSWORD\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"JWT_SECRET\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"ENVIRONMENT\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"MINIO_ROOT_USER\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="The \"MINIO_ROOT_PASSWORD\" variable is not set. Defaulting to a blank string."
+time="2026-05-18T17:43:00+01:00" level=warning msg="C:\\Users\\arijb\\Desktop\\e_learning_plateforme\\learning-platform\\docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+[+] Building 6.3s (69/69) FINISHED                                                                                        
+ => [internal] load local bake definitions                                                                           0.1s
+ => => reading from stdin 3.63kB                                                                                     0.1s
+ => [analytics-service internal] load build definition from Dockerfile                                               0.1s
+ => => transferring dockerfile: 502B                                                                                 0.0s
+ => [nginx-gateway internal] load build definition from Dockerfile                                                   0.1s
+ => => transferring dockerfile: 305B                                                                                 0.0s
+ => [course-service internal] load build definition from Dockerfile                                                  0.1s
+ => => transferring dockerfile: 502B                                                                                 0.0s
+ => [ai-tutor-service internal] load build definition from Dockerfile                                                0.2s
+ => => transferring dockerfile: 502B                                                                                 0.0s
+ => [learning-frontend internal] load build definition from Dockerfile                                               0.2s
+ => => transferring dockerfile: 878B                                                                                 0.0s
+ => [user-service internal] load build definition from Dockerfile                                                    0.1s
+ => => transferring dockerfile: 335B                                                                                 0.0s
+ => [course-service internal] load metadata for docker.io/library/python:3.12-slim                                   1.3s
+ => [nginx-gateway internal] load metadata for docker.io/library/nginx:1.25-alpine                                   1.0s
+ => [learning-frontend internal] load metadata for docker.io/library/node:20-alpine                                  1.0s
+ => [auth] library/python:pull token for registry-1.docker.io                                                        0.0s
+ => [auth] library/nginx:pull token for registry-1.docker.io                                                         0.0s
+ => [auth] library/node:pull token for registry-1.docker.io                                                          0.0s
+ => [nginx-gateway internal] load .dockerignore                                                                      0.0s
+ => => transferring context: 2B                                                                                      0.0s
+ => [user-service internal] load .dockerignore                                                                       0.0s
+ => => transferring context: 2B                                                                                      0.0s
+ => [learning-frontend internal] load .dockerignore                                                                  0.0s
+ => => transferring context: 2B                                                                                      0.0s
+ => [nginx-gateway 1/3] FROM docker.io/library/nginx:1.25-alpine@sha256:516475cc129da42866742567714ddc681e5eed7b9ee  0.1s
+ => => resolve docker.io/library/nginx:1.25-alpine@sha256:516475cc129da42866742567714ddc681e5eed7b9ee0b9e9c015e464b  0.1s
+ => [nginx-gateway internal] load build context                                                                      0.0s
+ => => transferring context: 32B                                                                                     0.0s
+ => [user-service 1/6] FROM docker.io/library/node:20-alpine@sha256:fb4cd12c85ee03686f6af5362a0b0d56d50c58a04632e6c  0.1s
+ => => resolve docker.io/library/node:20-alpine@sha256:fb4cd12c85ee03686f6af5362a0b0d56d50c58a04632e6c0fb8363f60937  0.1s
+ => [user-service internal] load build context                                                                       0.0s
+ => => transferring context: 370B                                                                                    0.0s
+ => [learning-frontend internal] load build context                                                                  1.1s
+ => => transferring context: 1.44MB                                                                                  1.1s
+ => CACHED [nginx-gateway 2/3] RUN apk add --no-cache curl                                                           0.0s
+ => CACHED [nginx-gateway 3/3] COPY nginx.conf /etc/nginx/nginx.conf                                                 0.0s
+ => [nginx-gateway] exporting to image                                                                               0.5s
+ => => exporting layers                                                                                              0.0s
+ => => exporting manifest sha256:bfbd0e35578f13261e7835e7e95b7a6d54b41e335d9294c0566399770ea0e5c5                    0.0s
+ => => exporting config sha256:8c8b410895086d304825e8fe2c8417fb6d43351289407010306d5b03daf4c199                      0.0s
+ => => exporting attestation manifest sha256:74c68910eb7fa58811f2858b4516be5afc46b6d7fd32346a4548115758f7c8b1        0.1s
+ => => exporting manifest list sha256:2dfb76935d5a5647e3a180a72eacf051016974657e1b9b44a605e9e6fd540210               0.1s
+ => => naming to docker.io/library/learning-platform-nginx-gateway:latest                                            0.0s
+ => => unpacking to docker.io/library/learning-platform-nginx-gateway:latest                                         0.0s
+ => CACHED [learning-frontend 2/6] WORKDIR /app                                                                      0.0s
+ => CACHED [learning-frontend 3/6] RUN apk add --no-cache curl                                                       0.0s
+ => CACHED [user-service 4/6] COPY package.json .                                                                    0.0s
+ => CACHED [user-service 5/6] RUN npm install --production                                                           0.0s
+ => CACHED [user-service 6/6] COPY . .                                                                               0.0s
+ => [user-service] exporting to image                                                                                0.5s
+ => => exporting layers                                                                                              0.0s
+ => => exporting manifest sha256:55b986baf84342987b06b5ce4724cfa0eef18f85ab0a8eba114ffd51ad74968f                    0.0s
+ => => exporting config sha256:0fb00c509fcf3941e3318e3e8a76a13a03a542c7bdb5071d692f7bb0a0ad8ce4                      0.0s
+ => => exporting attestation manifest sha256:c9ae1d0a08ce12a3f41e9ccd1e8a8e3082d70c6962660d15e0677cff7b611e17        0.2s
+ => => exporting manifest list sha256:83219888a64eff6cc8932572bb0e00de536d874e93046c93023c733989c68b91               0.0s
+ => => naming to docker.io/library/learning-platform-user-service:latest                                             0.0s
+ => => unpacking to docker.io/library/learning-platform-user-service:latest                                          0.0s
+ => [ai-tutor-service internal] load .dockerignore                                                                   0.0s
+ => => transferring context: 2B                                                                                      0.0s
+ => [analytics-service internal] load .dockerignore                                                                  0.1s
+ => => transferring context: 2B                                                                                      0.0s
+ => [course-service internal] load .dockerignore                                                                     0.1s
+ => => transferring context: 2B                                                                                      0.0s
+ => [analytics-service 1/6] FROM docker.io/library/python:3.12-slim@sha256:401f6e1a67dad31a1bd78e9ad22d0ee0a3b52154  0.2s
+ => => resolve docker.io/library/python:3.12-slim@sha256:401f6e1a67dad31a1bd78e9ad22d0ee0a3b52154e6bd30e90be696bb6a  0.1s
+ => [ai-tutor-service internal] load build context                                                                   0.0s
+ => => transferring context: 154B                                                                                    0.0s
+ => [course-service internal] load build context                                                                     0.0s
+ => => transferring context: 402B                                                                                    0.0s
+ => [analytics-service internal] load build context                                                                  0.1s
+ => => transferring context: 154B                                                                                    0.0s
+ => CACHED [analytics-service 2/6] WORKDIR /app                                                                      0.0s
+ => CACHED [analytics-service 3/6] RUN apt-get update && apt-get install -y --no-install-recommends     curl     &&  0.0s
+ => CACHED [ai-tutor-service 4/6] COPY requirements.txt .                                                            0.0s
+ => CACHED [ai-tutor-service 5/6] RUN pip install --no-cache-dir -r requirements.txt                                 0.0s
+ => CACHED [ai-tutor-service 6/6] COPY . .                                                                           0.0s
+ => CACHED [course-service 4/6] COPY requirements.txt .                                                              0.0s
+ => CACHED [course-service 5/6] RUN pip install --no-cache-dir -r requirements.txt                                   0.0s
+ => CACHED [course-service 6/6] COPY . .                                                                             0.0s
+ => CACHED [analytics-service 4/6] COPY requirements.txt .                                                           0.0s
+ => CACHED [analytics-service 5/6] RUN pip install --no-cache-dir -r requirements.txt                                0.0s
+ => CACHED [analytics-service 6/6] COPY . .                                                                          0.0s
+ => [ai-tutor-service] exporting to image                                                                            0.9s
+ => => exporting layers                                                                                              0.0s
+ => => exporting manifest sha256:9ee0605a19b74e66277d52166582c4ab39ec40c46bf357fda6d4416a3835ed8f                    0.0s
+ => => exporting config sha256:197b124090e85ef632b0f41470b63edf34214e77ae594884fe0ea259e3a9db5a                      0.0s
+ => => exporting attestation manifest sha256:416c8b0da6d512826f53e333e4e2d304b52daa571474e95f7f4b432239900e9a        0.4s
+ => => exporting manifest list sha256:cfa0cde7d31a985afd5e83f4ba6af749367ad79ef30085f716f845af52069b06               0.1s
+ => => naming to docker.io/library/learning-platform-ai-tutor-service:latest                                         0.0s
+ => => unpacking to docker.io/library/learning-platform-ai-tutor-service:latest                                      0.0s
+ => [course-service] exporting to image                                                                              0.9s
+ => => exporting layers                                                                                              0.0s
+ => => exporting manifest sha256:f4fcac7c5016c6305af07c8cea7ebde80c6dedd1f9bb7b2468d2782f0aab733f                    0.0s
+ => => exporting config sha256:52875b561511794d810e10b6e76641bd3bf8c19800f1e8d1135bc83dd01dfef8                      0.0s
+ => => exporting attestation manifest sha256:e9740534c6ddf508f2a31bbc3ad80c486a12ff14b0c937906145e4a550137f44        0.3s
+ => => exporting manifest list sha256:4558d66f4805f122bceeaddcbf28b911981a95c9d16efe677370bcb9c1b17610               0.1s
+ => => naming to docker.io/library/learning-platform-course-service:latest                                           0.0s
+ => => unpacking to docker.io/library/learning-platform-course-service:latest                                        0.1s
+ => [analytics-service] exporting to image                                                                           0.9s
+ => => exporting layers                                                                                              0.0s
+ => => exporting manifest sha256:99d94343d7be724e8277d918f5dd21b72991596f4758b9f1ba978b3504dfd5fe                    0.0s
+ => => exporting config sha256:5b3eb27308a037e10b8c6ac0635861485c4eb278906e6d41fb0fcc4af96a1847                      0.0s
+ => => exporting attestation manifest sha256:21b1e01df3a9cd99a4e21a5d535512d6713a52d1257ad25dac930ebc3038a9b3        0.3s
+ => => exporting manifest list sha256:137eee2cf6c62a3879c2bb3008a3f4afeec7831fc5080d65877978f6a2e815ad               0.1s
+ => => naming to docker.io/library/learning-platform-analytics-service:latest                                        0.0s
+ => => unpacking to docker.io/library/learning-platform-analytics-service:latest                                     0.1s
+ => CACHED [learning-frontend runner 3/8] RUN apk add --no-cache curl                                                0.0s
+ => CACHED [learning-frontend runner 4/8] RUN addgroup --system --gid 1001 nodejs                                    0.0s
+ => CACHED [learning-frontend runner 5/8] RUN adduser --system --uid 1001 nextjs                                     0.0s
+ => CACHED [learning-frontend deps 4/5] COPY package.json package-lock.json* ./                                      0.0s
+ => CACHED [learning-frontend deps 5/5] RUN npm ci                                                                   0.0s
+ => CACHED [learning-frontend builder 3/5] COPY --from=deps /app/node_modules ./node_modules                         0.0s
+ => CACHED [learning-frontend builder 4/5] COPY . .                                                                  0.0s
+ => CACHED [learning-frontend builder 5/5] RUN npm run build                                                         0.0s
+ => CACHED [learning-frontend runner 6/8] COPY --from=builder /app/public ./public                                   0.0s
+ => CACHED [learning-frontend runner 7/8] COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./         0.0s
+ => CACHED [learning-frontend runner 8/8] COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/stati  0.0s
+ => [learning-frontend] exporting to image                                                                           0.5s
+ => => exporting layers                                                                                              0.0s
+ => => exporting manifest sha256:9273f5949b6f0288006277332fe9d803e506259b83bc7e497aaa39aa7f1c2ebb                    0.0s
+ => => exporting config sha256:f1382fc2be6710a715d5d286316e512424db5bbb5343838e0b898216c1362898                      0.0s
+ => => exporting attestation manifest sha256:d46701d1eca2b99f98d0c221ee2dcb95e4849d6da916480cc5575c2fdb2f46b6        0.1s
+ => => exporting manifest list sha256:0985d91f01b59451dbbd90841873e0cebceb2cdcbbe9a50d6a9f507cdd183691               0.1s
+ => => naming to docker.io/library/learning-platform-learning-frontend:latest                                        0.0s
+ => => unpacking to docker.io/library/learning-platform-learning-frontend:latest                                     0.1s
+ => [nginx-gateway] resolving provenance for metadata file                                                           0.4s
+ => [user-service] resolving provenance for metadata file                                                            0.4s
+ => [ai-tutor-service] resolving provenance for metadata file                                                        0.3s
+ => [learning-frontend] resolving provenance for metadata file                                                       0.2s
+ => [course-service] resolving provenance for metadata file                                                          0.1s
+ => [analytics-service] resolving provenance for metadata file                                                       0.0s
+[+] Running 14/14
+ ✔ learning-platform-course-service     Built                                                                        0.0s 
+ ✔ learning-platform-learning-frontend  Built                                                                        0.0s 
+ ✔ learning-platform-nginx-gateway      Built                                                                        0.0s 
+ ✔ learning-platform-analytics-service  Built                                                                        0.0s 
+ ✔ learning-platform-user-service       Built                                                                        0.0s 
+ ✔ learning-platform-ai-tutor-service   Built                                                                        0.0s 
+ ✔ Container minio                      Running                                                                      0.0s 
+ ✔ Container learning-frontend          Recreated                                                                    3.7s 
+ ✔ Container redis                      Running                                                                      0.0s 
+ ✔ Container course-service             Recreated                                                                    1.7s 
+ ✔ Container ai-tutor-service           Recreated                                                                    1.8s 
+ ✔ Container user-service               Recreated                                                                    1.7s 
+ ✔ Container analytics-service          Recreated                                                                    1.5s 
+ ✔ Container nginx-gateway              Recreated                                                                    3.1s 
+Attaching to ai-tutor-service, analytics-service, course-service, learning-frontend, minio, mongodb, n8n-automation, nginx-gateway, postgres, redis, user-service
+postgres  | Error: Database is uninitialized and superuser password is not specified.
+postgres  |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres  |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres  | 
+postgres  |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres  |        connections without a password. This is *not* recommended.
+postgres  | 
+postgres  |        See PostgreSQL documentation about "trust":
+postgres  |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres  | Error: Database is uninitialized and superuser password is not specified.
+postgres  |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres  |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres  | 
+postgres  |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres  |        connections without a password. This is *not* recommended.
+postgres  | 
+postgres  |        See PostgreSQL documentation about "trust":
+postgres  |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres  | Error: Database is uninitialized and superuser password is not specified.
+postgres  |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres  |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres  | 
+postgres  |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres  |        connections without a password. This is *not* recommended.
+postgres  | 
+postgres  |        See PostgreSQL documentation about "trust":
+postgres  |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres  | Error: Database is uninitialized and superuser password is not specified.
+postgres  |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres  |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres  | 
+postgres  |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres  |        connections without a password. This is *not* recommended.
+postgres  | 
+postgres  |        See PostgreSQL documentation about "trust":
+postgres  |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres  | Error: Database is uninitialized and superuser password is not specified.
+postgres  |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres  |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres  | 
+postgres  |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres  |        connections without a password. This is *not* recommended.
+postgres  | 
+postgres  |        See PostgreSQL documentation about "trust":
+postgres  |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres  | Error: Database is uninitialized and superuser password is not specified.
+postgres  |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres  |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres  | 
+postgres  |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres  |        connections without a password. This is *not* recommended.
+postgres  | 
+postgres  |        See PostgreSQL documentation about "trust":
+postgres  |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres  | Error: Database is uninitialized and superuser password is not specified.
+postgres  |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres  |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres  | 
+postgres  |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres  |        connections without a password. This is *not* recommended.
+postgres  | 
+postgres  |        See PostgreSQL documentation about "trust":
+postgres  |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres  | Error: Database is uninitialized and superuser password is not specified.
+postgres  |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres  |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres  | 
+postgres  |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres  |        connections without a password. This is *not* recommended.
+postgres  | 
+postgres  |        See PostgreSQL documentation about "trust":
+postgres  |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres  | Error: Database is uninitialized and superuser password is not specified.
+postgres  |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres  |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres  | 
+postgres  |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres  |        connections without a password. This is *not* recommended.
+postgres  | 
+postgres  |        See PostgreSQL documentation about "trust":
+postgres  |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres  | Error: Database is uninitialized and superuser password is not specified.
+postgres  |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres  |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres  | 
+postgres  |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres  |        connections without a password. This is *not* recommended.
+postgres  | 
+postgres  |        See PostgreSQL documentation about "trust":
+postgres  |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres  | Error: Database is uninitialized and superuser password is not specified.
+postgres  |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres  |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres  | 
+postgres  |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres  |        connections without a password. This is *not* recommended.
+postgres  | 
+postgres  |        See PostgreSQL documentation about "trust":
+postgres  |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres  | Error: Database is uninitialized and superuser password is not specified.
+postgres  |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres  |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres  | 
+postgres  |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres  |        connections without a password. This is *not* recommended.
+postgres  | 
+postgres  |        See PostgreSQL documentation about "trust":
+postgres  |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres  | Error: Database is uninitialized and superuser password is not specified.
+postgres  |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres  |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres  | 
+postgres  |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres  |        connections without a password. This is *not* recommended.
+postgres  | 
+postgres  |        See PostgreSQL documentation about "trust":
+postgres  |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres  | Error: Database is uninitialized and superuser password is not specified.
+postgres  |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres  |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres  | 
+postgres  |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres  |        connections without a password. This is *not* recommended.
+postgres  | 
+postgres  |        See PostgreSQL documentation about "trust":
+postgres  |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres  | Error: Database is uninitialized and superuser password is not specified.
+postgres  |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres  |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres  | 
+postgres  |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres  |        connections without a password. This is *not* recommended.
+postgres  | 
+postgres  |        See PostgreSQL documentation about "trust":
+postgres  |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres  | Error: Database is uninitialized and superuser password is not specified.
+postgres  |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres  |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres  | 
+postgres  |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres  |        connections without a password. This is *not* recommended.
+postgres  | 
+postgres  |        See PostgreSQL documentation about "trust":
+postgres  |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres  | Error: Database is uninitialized and superuser password is not specified.
+postgres  |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres  |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres  | 
+postgres  |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres  |        connections without a password. This is *not* recommended.
+postgres  | 
+learning-frontend  |   ▲ Next.js 14.2.35
+postgres           |        See PostgreSQL documentation about "trust":
+
+
+
+learning-frontend  |   - Local:        http://ce0f89e1972f:3000
+learning-frontend  |   - Network:      http://172.26.0.3:3000urrent/auth-trust.html
+
+
+
+learning-frontend  | 
+
+
+postgres           | Error: Database is uninitialized and superuser password is not specified.
+postgres           |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+
+
+
+
+postgres           |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+learning-frontend  |  ✓ Ready in 605ms
+postgres           | 
+postgres           |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres           |        connections without a password. This is *not* recommended.
+postgres           | 
+postgres           |        See PostgreSQL documentation about "trust":
+postgres           |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres           | Error: Database is uninitialized and superuser password is not specified.
+postgres           |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres           |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres           | 
+postgres           |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres           |        connections without a password. This is *not* recommended.
+postgres           | 
+postgres           |        See PostgreSQL documentation about "trust":
+postgres           |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres           | Error: Database is uninitialized and superuser password is not specified.
+postgres           |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres           |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres           | 
+postgres           |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres           |        connections without a password. This is *not* recommended.
+postgres           | 
+postgres           |        See PostgreSQL documentation about "trust":
+postgres           |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres           | Error: Database is uninitialized and superuser password is not specified.
+postgres           |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres           |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres           | 
+postgres           |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres           |        connections without a password. This is *not* recommended.
+postgres           | 
+postgres           |        See PostgreSQL documentation about "trust":
+postgres           |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres           | Error: Database is uninitialized and superuser password is not specified.
+postgres           |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres           |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres           | 
+postgres           |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres           |        connections without a password. This is *not* recommended.
+postgres           | 
+postgres           |        See PostgreSQL documentation about "trust":
+postgres           |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres           | Error: Database is uninitialized and superuser password is not specified.
+postgres           |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres           |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres           | 
+postgres           |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres           |        connections without a password. This is *not* recommended.
+postgres           | 
+postgres           |        See PostgreSQL documentation about "trust":
+postgres           |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres           | Error: Database is uninitialized and superuser password is not specified.
+postgres           |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres           |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres           | 
+postgres           |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres           |        connections without a password. This is *not* recommended.
+postgres           | 
+postgres           |        See PostgreSQL documentation about "trust":
+postgres           |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres           | Error: Database is uninitialized and superuser password is not specified.
+postgres           |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres           |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres           | 
+postgres           |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres           |        connections without a password. This is *not* recommended.
+postgres           | 
+postgres           |        See PostgreSQL documentation about "trust":
+postgres           |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres           | Error: Database is uninitialized and superuser password is not specified.
+postgres           |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres           |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres           | 
+postgres           |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres           |        connections without a password. This is *not* recommended.
+postgres           | 
+postgres           |        See PostgreSQL documentation about "trust":
+postgres           |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres           | Error: Database is uninitialized and superuser password is not specified.
+postgres           |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres           |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres           | 
+postgres           |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres           |        connections without a password. This is *not* recommended.
+postgres           | 
+postgres           |        See PostgreSQL documentation about "trust":
+postgres           |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres           | Error: Database is uninitialized and superuser password is not specified.
+postgres           |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres           |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres           | 
+postgres           |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres           |        connections without a password. This is *not* recommended.
+postgres           | 
+postgres           |        See PostgreSQL documentation about "trust":
+postgres           |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres           | Error: Database is uninitialized and superuser password is not specified.
+postgres           |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres           |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres           | 
+postgres           |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres           |        connections without a password. This is *not* recommended.
+postgres           | 
+postgres           |        See PostgreSQL documentation about "trust":
+postgres           |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres           | Error: Database is uninitialized and superuser password is not specified.
+postgres           |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres           |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres           | 
+postgres           |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres           |        connections without a password. This is *not* recommended.
+postgres           | 
+postgres           |        See PostgreSQL documentation about "trust":
+postgres           |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres           | Error: Database is uninitialized and superuser password is not specified.
+postgres           |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres           |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres           | 
+postgres           |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres           |        connections without a password. This is *not* recommended.
+postgres           | 
+postgres           |        See PostgreSQL documentation about "trust":
+postgres           |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres           | Error: Database is uninitialized and superuser password is not specified.
+postgres           |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres           |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres           | 
+postgres           |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres           |        connections without a password. This is *not* recommended.
+postgres           | 
+postgres           |        See PostgreSQL documentation about "trust":
+postgres           |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres           | Error: Database is uninitialized and superuser password is not specified.
+postgres           |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres           |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres           | 
+postgres           |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres           |        connections without a password. This is *not* recommended.
+postgres           | 
+postgres           |        See PostgreSQL documentation about "trust":
+postgres           |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres           | Error: Database is uninitialized and superuser password is not specified.
+postgres           |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres           |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres           | 
+postgres           |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres           |        connections without a password. This is *not* recommended.
+postgres           | 
+postgres           |        See PostgreSQL documentation about "trust":
+postgres           |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres           | Error: Database is uninitialized and superuser password is not specified.
+postgres           |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres           |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres           | 
+postgres           |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres           |        connections without a password. This is *not* recommended.
+postgres           | 
+postgres           |        See PostgreSQL documentation about "trust":
+postgres           |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres           | Error: Database is uninitialized and superuser password is not specified.
+postgres           |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres           |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres           | 
+postgres           |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres           |        connections without a password. This is *not* recommended.
+postgres           | 
+postgres           |        See PostgreSQL documentation about "trust":
+postgres           |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres           | Error: Database is uninitialized and superuser password is not specified.
+postgres           |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres           |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres           | 
+postgres           |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres           |        connections without a password. This is *not* recommended.
+postgres           | 
+postgres           |        See PostgreSQL documentation about "trust":
+postgres           |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres           | Error: Database is uninitialized and superuser password is not specified.
+postgres           |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres           |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres           | 
+postgres           |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres           |        connections without a password. This is *not* recommended.
+postgres           | 
+postgres           |        See PostgreSQL documentation about "trust":
+postgres           |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres           | Error: Database is uninitialized and superuser password is not specified.
+postgres           |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres           |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres           | 
+postgres           |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres           |        connections without a password. This is *not* recommended.
+postgres           | 
+postgres           |        See PostgreSQL documentation about "trust":
+postgres           |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres           | Error: Database is uninitialized and superuser password is not specified.
+postgres           |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres           |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres           | 
+postgres           |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres           |        connections without a password. This is *not* recommended.
+postgres           | 
+postgres           |        See PostgreSQL documentation about "trust":
+postgres           |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres           | Error: Database is uninitialized and superuser password is not specified.
+postgres           |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres           |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres           | 
+postgres           |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres           |        connections without a password. This is *not* recommended.
+postgres           | 
+postgres           |        See PostgreSQL documentation about "trust":
+postgres           |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres           | Error: Database is uninitialized and superuser password is not specified.
+postgres           |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres           |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres           | 
+postgres           |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres           |        connections without a password. This is *not* recommended.
+postgres           | 
+postgres           |        See PostgreSQL documentation about "trust":
+postgres           |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres           | Error: Database is uninitialized and superuser password is not specified.
+postgres           |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres           |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres           | 
+postgres           |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres           |        connections without a password. This is *not* recommended.
+postgres           | 
+postgres           |        See PostgreSQL documentation about "trust":
+postgres           |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres           | Error: Database is uninitialized and superuser password is not specified.
+postgres           |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres           |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres           | 
+postgres           |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres           |        connections without a password. This is *not* recommended.
+postgres           | 
+postgres           |        See PostgreSQL documentation about "trust":
+postgres           |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres           | Error: Database is uninitialized and superuser password is not specified.
+postgres           |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres           |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres           | 
+postgres           |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres           |        connections without a password. This is *not* recommended.
+postgres           | 
+postgres           |        See PostgreSQL documentation about "trust":
+postgres           |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres           | Error: Database is uninitialized and superuser password is not specified.
+postgres           |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres           |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+postgres           | 
+postgres           |        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+postgres           |        connections without a password. This is *not* recommended.
+postgres           | 
+postgres           |        See PostgreSQL documentation about "trust":
+postgres           |        https://www.postgresql.org/docs/current/auth-trust.html
+postgres           | Error: Database is uninitialized and superuser password is not specified.
+postgres           |        You must specify POSTGRES_PASSWORD to a non-empty value for the
+postgres           |        superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+dependency failed to start: container postgres is unhealthy
+PS C:\Users\arijb\Desktop\e_learning_plateforme\learning-platform> 
+v View in Docker Desktop   o View Config   w Enable Watch
