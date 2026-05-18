@@ -20,8 +20,8 @@ app.use(express.json({ limit: '10mb' }));
 app.use(morgan('combined'));
 
 // Rate limiting
-const limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 100 });
-const authLimiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 20 });
+const limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 200 });
+const authLimiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 50 });
 app.use('/api/', limiter);
 app.use('/api/auth', authLimiter);
 
@@ -29,7 +29,7 @@ app.use('/api/auth', authLimiter);
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 
-// Health check — répond toujours, même si MongoDB n'est pas encore connecté
+// Health check — répond toujours
 app.get('/health', (req, res) => {
   const mongoState = mongoose.connection.readyState;
   const states = { 0: 'disconnected', 1: 'connected', 2: 'connecting', 3: 'disconnecting' };
@@ -52,7 +52,7 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Internal server error' });
 });
 
-// Démarre le serveur HTTP immédiatement (healthcheck dispo dès le début)
+// Démarre le serveur HTTP immédiatement
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`User Service running on port ${PORT}`);
   connectMongo();
@@ -60,7 +60,7 @@ app.listen(PORT, '0.0.0.0', () => {
 
 // Connexion MongoDB avec retry automatique
 const RETRY_DELAY_MS = 5000;
-const MAX_RETRIES = 12; // 12 × 5s = 1 minute
+const MAX_RETRIES = 20;
 
 async function connectMongo(attempt = 1) {
   try {
@@ -68,12 +68,17 @@ async function connectMongo(attempt = 1) {
     await mongoose.connect(MONGO_URI, {
       serverSelectionTimeoutMS: 5000,
       connectTimeoutMS: 10000,
+      socketTimeoutMS: 30000,
+      // CRITIQUE: désactive le buffering pour éviter les timeouts nginx
+      // Sans cela, les requêtes restent en attente infinie → nginx 502 → HTML → JSON.parse fail
+      bufferCommands: false,
     });
     console.log('[MongoDB] Connected successfully');
   } catch (err) {
     console.error(`[MongoDB] Connection failed (attempt ${attempt}): ${err.message}`);
     if (attempt >= MAX_RETRIES) {
-      console.error('[MongoDB] Max retries reached. Service will continue degraded — restart to retry.');
+      console.error('[MongoDB] Max retries reached. Restarting in 30s...');
+      setTimeout(() => connectMongo(1), 30000);
       return;
     }
     console.log(`[MongoDB] Retrying in ${RETRY_DELAY_MS / 1000}s...`);
@@ -85,4 +90,8 @@ async function connectMongo(attempt = 1) {
 mongoose.connection.on('disconnected', () => {
   console.warn('[MongoDB] Connection lost. Reconnecting...');
   setTimeout(() => connectMongo(), RETRY_DELAY_MS);
+});
+
+mongoose.connection.on('connected', () => {
+  console.log('[MongoDB] Mongoose connection established.');
 });

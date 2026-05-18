@@ -17,15 +17,24 @@ export default function RegisterPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
-      const data = await res.json();
+
+      let data: { error?: string; message?: string; token?: string } = {};
+      try {
+        data = await res.json();
+      } catch {
+        // La réponse n'est pas du JSON (502, 504...) — serveur non disponible
+        setError('Le serveur est en cours de démarrage, veuillez patienter 30 secondes et réessayer.');
+        return;
+      }
+
       if (res.ok) {
-        localStorage.setItem('token', data.token);
+        localStorage.setItem('token', data.token || '');
         window.location.href = '/dashboard';
       } else {
-        setError(data.error || 'Erreur lors de l\'inscription');
+        setError(data.error || `Erreur ${res.status} — veuillez réessayer.`);
       }
     } catch {
-      setError('Erreur de connexion au serveur');
+      setError('Impossible de joindre le serveur. Vérifiez votre connexion.');
     } finally {
       setLoading(false);
     }
@@ -47,7 +56,11 @@ export default function RegisterPage() {
           <p className="text-gray-500 mt-1">Rejoignez 25 000+ apprenants</p>
         </div>
 
-        {error && <div className="bg-red-50 border border-red-200 text-red-700 rounded-lg p-3 mb-4 text-sm">{error}</div>}
+        {error && (
+          <div className="bg-red-50 border border-red-200 text-red-700 rounded-lg p-3 mb-4 text-sm">
+            {error}
+          </div>
+        )}
 
         <form onSubmit={handleRegister} className="space-y-4">
           <div className="grid grid-cols-2 gap-3">
@@ -82,7 +95,7 @@ export default function RegisterPage() {
           </div>
           <button type="submit" disabled={loading}
             className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 disabled:opacity-50 transition">
-            {loading ? 'Inscription...' : 'S\'inscrire gratuitement'}
+            {loading ? 'Inscription en cours...' : 'S\'inscrire gratuitement'}
           </button>
         </form>
 

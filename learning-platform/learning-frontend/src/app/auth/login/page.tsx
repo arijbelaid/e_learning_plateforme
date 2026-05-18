@@ -18,18 +18,32 @@ export default function LoginPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       });
-      const data = await res.json();
+
+      let data: { error?: string; message?: string; token?: string } = {};
+      try {
+        data = await res.json();
+      } catch {
+        // Réponse non-JSON (502 HTML) — serveur pas encore prêt
+        setError('Le serveur est en cours de démarrage, veuillez patienter 30 secondes et réessayer.');
+        return;
+      }
+
       if (res.ok) {
-        localStorage.setItem('token', data.token);
+        localStorage.setItem('token', data.token || '');
         window.location.href = '/dashboard';
       } else {
-        setError(data.error || 'Identifiants incorrects');
+        setError(data.error || `Erreur ${res.status} — veuillez réessayer.`);
       }
     } catch {
-      setError('Erreur de connexion au serveur');
+      setError('Impossible de joindre le serveur. Vérifiez votre connexion.');
     } finally {
       setLoading(false);
     }
+  };
+
+  const fillDemo = (demoEmail: string) => {
+    setEmail(demoEmail);
+    setPassword('Admin@1234');
   };
 
   return (
@@ -47,7 +61,9 @@ export default function LoginPage() {
         </div>
 
         {error && (
-          <div className="bg-red-50 border border-red-200 text-red-700 rounded-lg p-3 mb-4 text-sm">{error}</div>
+          <div className="bg-red-50 border border-red-200 text-red-700 rounded-lg p-3 mb-4 text-sm">
+            {error}
+          </div>
         )}
 
         <form onSubmit={handleLogin} className="space-y-4">
@@ -70,12 +86,21 @@ export default function LoginPage() {
         </form>
 
         <div className="mt-6 p-4 bg-gray-50 rounded-lg">
-          <p className="text-xs text-gray-600 font-medium mb-2">Comptes de test :</p>
-          <div className="space-y-1 text-xs text-gray-500">
-            <div><strong>Admin:</strong> admin@learncloud.fr</div>
-            <div><strong>Instructeur:</strong> instructor@learncloud.fr</div>
-            <div><strong>Étudiant:</strong> student@learncloud.fr</div>
-            <div><strong>Mot de passe:</strong> Admin@1234</div>
+          <p className="text-xs text-gray-600 font-medium mb-2">Comptes de test (cliquez pour remplir) :</p>
+          <div className="space-y-1">
+            <button onClick={() => fillDemo('admin@learncloud.fr')}
+              className="w-full text-left text-xs text-blue-600 hover:text-blue-800 hover:underline py-0.5">
+              Admin — admin@learncloud.fr
+            </button>
+            <button onClick={() => fillDemo('instructor@learncloud.fr')}
+              className="w-full text-left text-xs text-blue-600 hover:text-blue-800 hover:underline py-0.5">
+              Instructeur — instructor@learncloud.fr
+            </button>
+            <button onClick={() => fillDemo('student@learncloud.fr')}
+              className="w-full text-left text-xs text-blue-600 hover:text-blue-800 hover:underline py-0.5">
+              Étudiant — student@learncloud.fr
+            </button>
+            <p className="text-xs text-gray-400 mt-1">Mot de passe : Admin@1234</p>
           </div>
         </div>
 
