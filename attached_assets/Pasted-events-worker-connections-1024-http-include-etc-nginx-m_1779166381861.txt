@@ -1,0 +1,139 @@
+events {
+    worker_connections 1024;
+}
+
+http {
+    include       /etc/nginx/mime.types;
+    default_type  application/octet-stream;
+    sendfile on;
+    keepalive_timeout 65;
+    client_max_body_size 100M;
+
+    upstream frontend { 
+        server learning-frontend:3000; 
+    }
+    
+    upstream course_service { 
+        server course-service:8001; 
+    }
+    
+    upstream user_service { 
+        server user-service:3001; 
+    }
+    
+    upstream analytics_service { 
+        server analytics-service:8002; 
+    }
+    
+    upstream ai_tutor_service { 
+        server ai-tutor-service:8003; 
+    }
+    
+    upstream n8n { 
+        server n8n-automation:5678; 
+    }
+
+    server {
+        listen 80;
+        server_name _;
+
+        # Health check
+        location = /health {
+            access_log off;
+            return 200 '{"status":"ok"}';
+            add_header Content-Type application/json;
+        }
+
+        # API Auth (inscription, connexion)
+        location /api/auth/ {
+            proxy_pass http://user_service/;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            proxy_connect_timeout 10s;
+            proxy_read_timeout 30s;
+        }
+
+        # API Users
+        location /api/users/ {
+            proxy_pass http://user_service/;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            proxy_connect_timeout 10s;
+            proxy_read_timeout 30s;
+        }
+
+        # API Enrollments
+        location /api/enrollments/ {
+            proxy_pass http://course_service/;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            proxy_connect_timeout 10s;
+            proxy_read_timeout 30s;
+        }
+
+        # API Courses
+        location /api/courses/ {
+            proxy_pass http://course_service/;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            proxy_connect_timeout 10s;
+            proxy_read_timeout 30s;
+        }
+
+        # API Analytics
+        location /api/analytics/ {
+            proxy_pass http://analytics_service/;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            proxy_connect_timeout 10s;
+            proxy_read_timeout 30s;
+        }
+
+        # API AI Tutor
+        location /api/ai-tutor/ {
+            proxy_pass http://ai_tutor_service/;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            proxy_connect_timeout 10s;
+            proxy_read_timeout 120s;
+        }
+
+        # n8n automation
+        location /n8n/ {
+            proxy_pass http://n8n/;
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection 'upgrade';
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        # Frontend (Next.js)
+        location / {
+            proxy_pass http://frontend/;
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection 'upgrade';
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            proxy_connect_timeout 10s;
+            proxy_read_timeout 60s;
+        }
+    }
+}
